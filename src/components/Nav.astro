@@ -1,0 +1,89 @@
+---
+// Sticky top nav, ported from the design source. The CTA is a real anchor to
+// the contact section so it works with no JS (scroll-behavior handles smooth).
+interface Props {
+  contactHref?: string;
+}
+const { contactHref = '/#contact' } = Astro.props;
+---
+
+<nav class="an-nav">
+  <div class="wrap an-nav__inner">
+    <a href="/" class="an-wordmark" aria-label="Aubrey North — home">
+      <span class="an-wordmark__the">the</span>
+      <span class="an-wordmark__name">AUBREY&nbsp;NORTH</span>
+      <span class="an-wordmark__co">company</span>
+    </a>
+    <a href={contactHref} class="an-cta an-cta--dark">Coffee&nbsp;+&nbsp;Chat</a>
+  </div>
+</nav>
+
+<style>
+  .an-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(246, 243, 236, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(27, 26, 23, 0.1);
+  }
+  .an-nav__inner {
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: var(--measure);
+  }
+  .an-wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 0.34em;
+    text-decoration: none;
+  }
+  .an-wordmark__the {
+    font-family: var(--font-headline);
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .an-wordmark__name {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: clamp(15px, 4.6vw, 19px);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .an-wordmark__co {
+    font-family: var(--font-headline);
+    font-size: 12px;
+    color: #6f6a60;
+  }
+  .an-cta {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 11px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  }
+  .an-cta--dark {
+    color: #f1ece2;
+    background: var(--ink);
+  }
+  .an-cta--dark:hover {
+    background: var(--rust);
+    transform: translateY(-1px);
+  }
+  @media (max-width: 640px) {
+    .an-nav__inner {
+      padding-left: 22px;
+      padding-right: 22px;
+      gap: 14px;
+    }
+  }
+</style>

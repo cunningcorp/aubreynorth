@@ -1,0 +1,152 @@
+/* Self-hosted fonts. Exact files/weights from _handoff (see CLAUDE.md — type roles).
+   font-display: swap, no Google Fonts. */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/Recoleta-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Scenario';
+  src: url('/fonts/Scenario-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/Futura-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Locked palette — handbook + copylock. */
+  --paper: #f6f3ec;
+  --ink: #1b1a17;
+  --rust: #c0593b; /* Aubrey North accent */
+  --body: #4a463e;
+  --muted: #8a8378;
+  --dark: #201e1a; /* dark centrepiece / contact / footer */
+  --dark-panel: #1b1a17;
+  --on-dark: #f1ece2;
+  --on-dark-soft: #b3ab9c;
+
+  /* Type roles — do not swap. */
+  --font-wordmark: 'Scenario', serif;
+  --font-headline: 'Recoleta', Georgia, serif;
+  --font-body: 'Futura', 'Helvetica Neue', Arial, sans-serif;
+
+  --measure: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a39c8f;
+}
+
+/* Decorative orbit marks — hidden on small screens (from design source). */
+@media (max-width: 768px) {
+  [data-deco] {
+    display: none !important;
+  }
+}
+
+/* Reveal-on-scroll: content is visible by default (no-JS safe); the script
+   only adds the entrance transition when JS + motion are available. */
+@keyframes anBreathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.12); opacity: 0.55; }
+}
+@keyframes anDrift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, -9px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes anPulseRing {
+  0% { transform: scale(0.5); opacity: 0.7; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+@keyframes anOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes anGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 89, 59, 0); }
+  50% { box-shadow: 0 0 22px 5px rgba(192, 89, 59, 0.5); }
+}
+@keyframes anFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* When JS is on we opt into the reveal by adding .js-reveal to <html>. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared layout wrapper */
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 22px;
+  }
+}

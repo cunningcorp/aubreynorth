@@ -1,0 +1,81 @@
+---
+// Decorative orbiting-dot mark from the design source. Purely ornamental —
+// hidden on mobile and for reduced-motion, aria-hidden always.
+interface Props {
+  class?: string;
+  orbit?: string; // orbit animation duration
+}
+const { class: className = '', orbit = '9s' } = Astro.props;
+---
+
+<div class:list={['an-orbit', className]} data-deco aria-hidden="true">
+  <div class="an-orbit__ring an-orbit__ring--pulse"></div>
+  <div class="an-orbit__ring an-orbit__ring--pulse an-orbit__ring--delay"></div>
+  <div class="an-orbit__ring an-orbit__ring--static"></div>
+  <div class="an-orbit__spin" style={`animation-duration:${orbit}`}>
+    <div class="an-orbit__satellite"></div>
+  </div>
+  <div class="an-orbit__center">
+    <div class="an-orbit__core"></div>
+  </div>
+</div>
+
+<style>
+  .an-orbit {
+    position: absolute;
+    animation: anDrift 7s ease-in-out infinite;
+  }
+  .an-orbit__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(192, 89, 59, 0.45);
+  }
+  .an-orbit__ring--pulse {
+    animation: anPulseRing 3.6s ease-out infinite;
+  }
+  .an-orbit__ring--delay {
+    animation-delay: 1.8s;
+  }
+  .an-orbit__ring--static {
+    border-color: rgba(192, 89, 59, 0.3);
+    animation: none;
+  }
+  .an-orbit__spin {
+    position: absolute;
+    inset: 0;
+    animation: anOrbit linear infinite;
+  }
+  .an-orbit__satellite {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-left: -4.5px;
+    border-radius: 50%;
+    background: var(--rust);
+  }
+  .an-orbit__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .an-orbit__core {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--rust);
+    animation: anBreathe 3.6s ease-in-out infinite, anGlow 3.6s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .an-orbit,
+    .an-orbit__ring,
+    .an-orbit__spin,
+    .an-orbit__core {
+      animation: none !important;
+    }
+  }
+</style>

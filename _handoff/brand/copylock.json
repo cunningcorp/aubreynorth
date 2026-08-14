@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "schema": "cunning-corp/copylock",
+    "version": "1.2",
+    "locked": "2026-08-14",
+    "status": "approved",
+    "note": "Canonical, approved copy for the Cunning Corp brand ladder. Do not edit casually — bump version on change. Human-readable mirror: Brand Ladder.dc.html.",
+    "sources": ["cunning-corp-brand-brief.html (v1.9)", "cunning-corp-hero.html", "cunning-corp-design-handoff.html"]
+  },
+
+  "voice": {
+    "register": "Sharp and witty — but dry, never zany.",
+    "principle": "Warm and whimsical, but never too poetic — copy must always paint a clear picture of what we do as a business.",
+    "rules": [
+      "Wit is a scalpel: one clever turn per piece, maximum.",
+      "Confidence, no hype: no exclamation marks, no 'revolutionary'. State it plainly and let the bulb glow.",
+      "The 1/8th principle: show the one lit idea; never list every venture.",
+      "Story leads, method follows.",
+      "Volume is set per division: Ideas loudest, Publications & Productions measured, Aubrey North quietest."
+    ]
+  },
+
+  "house": {
+    "name": "Cunning Corp",
+    "role": "The House",
+    "volume": "Full wit",
+    "accent": "#C8A24C",
+    "markTreatment": "vivid",
+    "taglines": {
+      "hero": "Building worlds from bright ideas.",
+      "short": "Wired for wonder.",
+      "descriptor": "A house of stories, each one lit by an idea.",
+      "note": "Hero is primary and always available. Short form is the compact, evocative sibling for tight spaces (sign-offs, social, app splash) — never a replacement for the hero. Descriptor sits under either to keep the meaning clear."
+    },
+    "hero": "Building worlds from bright ideas.",
+    "tagline": "A house of stories, each one lit by an idea.",
+    "positioning": "Cunning Corp — a house of stories, each one lit by an idea.",
+    "premise": "The idea is the filament. The story is the light. Each division tells a different one.",
+    "story": "A family of story companies — we sharpen the stories businesses tell, put new ones on page and screen, and dream up the ideas that spark them."
+  },
+
+  "divisions": [
+    {
+      "name": "Cunning Ideas",
+      "role": "Moonshot engine",
+      "volume": "Loudest",
+      "accent": "#C8A24C",
+      "markTreatment": "vivid",
+      "hero": "Big ideas in, whole worlds out.",
+      "tagline": "The moonshot lab, where worlds switch on.",
+      "story": null
+    },
+    {
+      "name": "Cunning Publications",
+      "role": "Editorial arm",
+      "volume": "Measured",
+      "accent": "#2C3E5D",
+      "markTreatment": "flat",
+      "hero": "Stories, set in ink.",
+      "tagline": "Bright ideas, on the page.",
+      "story": "The editorial arm — putting new stories on the page, considered and unhurried."
+    },
+    {
+      "name": "Cunning Productions",
+      "role": "Story-led screen",
+      "volume": "Measured",
+      "accent": "#1F5F5B",
+      "markTreatment": "flat",
+      "hero": "Narrative, on screen.",
+      "tagline": "Bright ideas, in motion.",
+      "story": "Story-led channels and screen — narrative craft leads, the machinery stays quiet."
+    },
+    {
+      "name": "Aubrey North",
+      "role": "Narrative advisory",
+      "volume": "Quietest",
+      "accent": "#C0593B",
+      "markTreatment": "flat",
+      "endorsed": true,
+      "hero": "Say less. Mean more.",
+      "tagline": "A Cunning Corp company.",
+      "story": "Narrative advisory — spare, certain, composed. Keeps its own Scenario/Futura kit; Recoleta is the shared thread home."
+    }
+  ]
+}

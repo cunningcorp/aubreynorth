@@ -1,0 +1,290 @@
+---
+// Contact form. The site is static; this is the ONLY dynamic piece.
+// On submit it inserts a row into Supabase (insert-only RLS). If the
+// PUBLIC_SUPABASE_* env vars are absent at build, it degrades to a mailto:
+// fallback and never throws. (See CLAUDE.md — Backend / forms.)
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL ?? '';
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+const mailto = 'demetri@aubreynorth.com';
+---
+
+<div class="an-contact-form">
+  <!-- Success state, revealed by the script after a successful insert. -->
+  <div class="an-sent" id="an-sent" hidden>
+    <p class="an-sent__label">Received</p>
+    <p class="an-sent__head">We have it.</p>
+    <p class="an-sent__body">
+      Thank you, <span id="an-sent-name">there</span>. We reply within two
+      working days.
+    </p>
+  </div>
+
+  <form
+    id="an-contact"
+    class="an-form"
+    method="post"
+    action={`mailto:${mailto}`}
+    data-supabase-url={supabaseUrl}
+    data-supabase-key={supabaseKey}
+    data-mailto={mailto}
+  >
+    <div class="an-formrow">
+      <label class="an-field">
+        <span class="an-field__label">Your name</span>
+        <input name="name" type="text" autocomplete="name" placeholder="Jane Aubrey" required />
+      </label>
+      <label class="an-field">
+        <span class="an-field__label">Business</span>
+        <input name="business" type="text" autocomplete="organization" placeholder="North &amp; Co." />
+      </label>
+    </div>
+
+    <label class="an-field">
+      <span class="an-field__label">Email</span>
+      <input name="email" type="email" autocomplete="email" placeholder="jane@northco.uk" required />
+    </label>
+
+    <label class="an-field">
+      <span class="an-field__label">What should a customer feel on contact?</span>
+      <textarea name="message" rows="3" placeholder="In a sentence or two…" required></textarea>
+    </label>
+
+    <!-- Honeypot: real people leave this empty; bots tend to fill it. -->
+    <div class="an-hp" aria-hidden="true">
+      <label>
+        Leave this field empty
+        <input name="company_url" type="text" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <div class="an-form__status" id="an-error" role="alert"></div>
+
+    <button type="submit" class="an-cta an-cta--paper">Request a coffee</button>
+
+    <p class="an-form__privacy">
+      Your details stay with us — used only to reply to this enquiry, never
+      shared or added to a list.
+    </p>
+  </form>
+</div>
+
+<style>
+  .an-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .an-formrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .an-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .an-field__label {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .an-field input,
+  .an-field textarea {
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: #f1ece2;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(241, 236, 226, 0.28);
+    padding: 10px 0;
+    outline: none;
+    resize: none;
+    transition: border-color 0.25s ease;
+  }
+  .an-field input:focus,
+  .an-field textarea:focus {
+    border-color: var(--rust);
+  }
+  .an-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .an-form__status {
+    min-height: 18px;
+    font-size: 13px;
+    color: var(--rust);
+    font-style: italic;
+  }
+  .an-cta {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease,
+      opacity 0.25s ease;
+  }
+  .an-cta--paper {
+    color: var(--ink);
+    background: #f1ece2;
+  }
+  .an-cta--paper:hover {
+    background: var(--rust);
+    color: var(--paper);
+    transform: translateY(-2px);
+  }
+  .an-cta[disabled] {
+    opacity: 0.6;
+    cursor: default;
+  }
+  .an-form__privacy {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #6f6a60;
+    margin: 6px 0 0;
+    max-width: 440px;
+  }
+  .an-sent {
+    border: 1px solid rgba(192, 89, 59, 0.5);
+    border-radius: 6px;
+    padding: 48px 36px;
+    background: var(--dark-panel);
+  }
+  .an-sent__label {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 18px;
+  }
+  .an-sent__head {
+    font-family: var(--font-headline);
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--paper);
+  }
+  .an-sent__body {
+    font-size: 16px;
+    color: var(--on-dark-soft);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .an-formrow {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('an-contact') as HTMLFormElement | null;
+  if (form) {
+    const errorEl = document.getElementById('an-error') as HTMLElement;
+    const sentEl = document.getElementById('an-sent') as HTMLElement;
+    const sentName = document.getElementById('an-sent-name') as HTMLElement;
+    const submitBtn = form.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement;
+
+    const url = form.dataset.supabaseUrl || '';
+    const key = form.dataset.supabaseKey || '';
+    const mailto = form.dataset.mailto || '';
+
+    const val = (name: string) =>
+      ((form.elements.namedItem(name) as HTMLInputElement | null)?.value ?? '').trim();
+
+    const setError = (msg: string) => {
+      errorEl.textContent = msg;
+    };
+
+    const succeed = (firstName: string) => {
+      sentName.textContent = firstName || 'there';
+      form.hidden = true;
+      sentEl.hidden = false;
+      sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // Fallback: open a pre-filled email if there is no backend configured.
+    const mailtoFallback = (
+      name: string,
+      business: string,
+      email: string,
+      message: string
+    ) => {
+      const subject = `Coffee + Chat — ${name}${business ? ` (${business})` : ''}`;
+      const body =
+        `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\n\n` +
+        `What a customer should feel on contact:\n${message}`;
+      window.location.href =
+        `mailto:${mailto}?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+      succeed(name.split(/\s+/)[0]);
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setError('');
+
+      // Honeypot: silently accept, do nothing.
+      if (val('company_url')) {
+        succeed(val('name').split(/\s+/)[0]);
+        return;
+      }
+
+      const name = val('name');
+      const business = val('business');
+      const email = val('email');
+      const message = val('message');
+
+      if (!name) return setError('A name, to start.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+        return setError('A real email, so we can reply.');
+      if (!message)
+        return setError('One line on what a customer should feel.');
+
+      // No backend configured → mailto fallback.
+      if (!url || !key) {
+        mailtoFallback(name, business, email, message);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const composed = business ? `Business: ${business}\n\n${message}` : message;
+
+      try {
+        const res = await fetch(`${url}/rest/v1/contact_submissions`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: key,
+            Authorization: `Bearer ${key}`,
+            Prefer: 'return=minimal',
+          },
+          body: JSON.stringify({ name, email, message: composed }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        succeed(name.split(/\s+/)[0]);
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request a coffee';
+        setError('That did not send. Try once more, or email us directly.');
+      }
+    });
+  }
+</script>
