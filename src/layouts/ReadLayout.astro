@@ -39,7 +39,9 @@ const jsonLd = {
     name: SITE.name,
     logo: {
       '@type': 'ImageObject',
-      url: new URL('/og-default.svg', SITE.url).href,
+      url: new URL('/logo.png', SITE.url).href,
+      width: 1024,
+      height: 1024,
     },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },

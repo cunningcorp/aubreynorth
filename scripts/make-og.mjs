@@ -1,11 +1,13 @@
-// Generate the default Open Graph card as a 1200×630 PNG.
+// Generate the brand raster images, deterministically.
 //
-// Social scrapers (X, Facebook, LinkedIn, iMessage, Slack) do not reliably
-// render SVG preview cards, so og:image must be a raster PNG.
+//   public/og-default.png  1200×630  — the Open Graph / Twitter card. Social
+//                                       scrapers do not reliably render SVG.
+//   public/logo.png        1024×1024 — square logo for JSON-LD Organization /
+//                                       publisher (clears Google's 512px min).
 //
-// The wordmark and endorsement label are OUTLINED to vector paths from the
-// real Scenario face, so the SVG we hand to sharp contains no <text> — nothing
-// depends on a system font being installed at raster time. Deterministic.
+// The wordmark and label are OUTLINED to vector paths from the real Scenario
+// face, so the SVG handed to sharp contains no <text> — nothing depends on a
+// system font being installed at raster time.
 //
 // Regenerate with:  node scripts/make-og.mjs
 //
@@ -28,24 +30,24 @@ const PAPER = '#f6f3ec';
 const INK = '#1b1a17';
 const RUST = '#C0593B';
 
-const W = 1200;
-const H = 630;
+// Font size that makes `text` exactly `targetWidth` wide.
+const fitSize = (text, targetWidth) =>
+  (100 * targetWidth) / font.getAdvanceWidth(text, 100);
 
-// Centered single run → outlined path + its measured width, for centring.
-function centeredPath(text, size, y, fill) {
+// Centered single run → outlined path, centred in a `canvasW`-wide canvas.
+function centeredPath(text, size, y, fill, canvasW) {
   const width = font.getAdvanceWidth(text, size);
-  const x = (W - width) / 2;
-  const d = font.getPath(text, x, y, size).toPathData(2);
+  const d = font.getPath(text, (canvasW - width) / 2, y, size).toPathData(2);
   return `<path d="${d}" fill="${fill}"/>`;
 }
 
 // Centered run with letter-spacing (label treatment) → glyphs placed by hand.
-function centeredTrackedPath(text, size, y, fill, tracking) {
+function centeredTrackedPath(text, size, y, fill, tracking, canvasW) {
   const chars = [...text];
   const advances = chars.map((c) => font.getAdvanceWidth(c, size));
   const total =
     advances.reduce((a, b) => a + b, 0) + tracking * (chars.length - 1);
-  let x = (W - total) / 2;
+  let x = (canvasW - total) / 2;
   let d = '';
   chars.forEach((c, i) => {
     d += font.getPath(c, x, y, size).toPathData(2) + ' ';
@@ -55,23 +57,35 @@ function centeredTrackedPath(text, size, y, fill, tracking) {
 }
 
 // Orbital mark: outer ring, filled core, single satellite. Pure geometry.
-const cx = W / 2;
-const cy = 218;
-const mark = `
-  <circle cx="${cx}" cy="${cy}" r="95" fill="none" stroke="${RUST}" stroke-width="4"/>
-  <circle cx="${cx}" cy="${cy}" r="26" fill="${RUST}"/>
-  <circle cx="${cx}" cy="${cy - 95}" r="12" fill="${RUST}"/>
+const orbitalMark = (cx, cy, r, core, sat, stroke) => `
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${RUST}" stroke-width="${stroke}"/>
+  <circle cx="${cx}" cy="${cy}" r="${core}" fill="${RUST}"/>
+  <circle cx="${cx}" cy="${cy - r}" r="${sat}" fill="${RUST}"/>
 `;
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="${PAPER}"/>
-  ${mark}
-  ${centeredPath('AUBREY NORTH', 92, 445, INK)}
-  ${centeredTrackedPath('A CUNNING CORP COMPANY', 22, 510, RUST, 7)}
+async function render(svg, out) {
+  await sharp(Buffer.from(svg)).png().toFile(out);
+  const meta = await sharp(out).metadata();
+  console.log(`wrote ${out} — ${meta.width}×${meta.height} ${meta.format}`);
+}
+
+// --- OG card: 1200×630 -------------------------------------------------------
+const ogW = 1200;
+const ogH = 630;
+const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ogW}" height="${ogH}" viewBox="0 0 ${ogW} ${ogH}">
+  <rect width="${ogW}" height="${ogH}" fill="${PAPER}"/>
+  ${orbitalMark(ogW / 2, 218, 95, 26, 12, 4)}
+  ${centeredPath('AUBREY NORTH', 92, 445, INK, ogW)}
+  ${centeredTrackedPath('A CUNNING CORP COMPANY', 22, 510, RUST, 7, ogW)}
 </svg>`;
+await render(ogSvg, join(root, 'public/og-default.png'));
 
-const out = join(root, 'public/og-default.png');
-await sharp(Buffer.from(svg)).png().toFile(out);
-
-const meta = await sharp(out).metadata();
-console.log(`wrote ${out} — ${meta.width}×${meta.height} ${meta.format}`);
+// --- Square logo: 1024×1024 --------------------------------------------------
+const lg = 1024;
+const wordSize = fitSize('AUBREY NORTH', 840); // fit to width with margins
+const logoSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${lg}" height="${lg}" viewBox="0 0 ${lg} ${lg}">
+  <rect width="${lg}" height="${lg}" fill="${PAPER}"/>
+  ${orbitalMark(lg / 2, 388, 150, 42, 19, 6)}
+  ${centeredPath('AUBREY NORTH', wordSize, 748, INK, lg)}
+</svg>`;
+await render(logoSvg, join(root, 'public/logo.png'));
