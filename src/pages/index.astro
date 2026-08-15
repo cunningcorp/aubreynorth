@@ -41,7 +41,12 @@ const jsonLd = [
   <main>
     <!-- HERO -->
     <header class="hero wrap">
-      <OrbitMark class="hero__deco" orbit="9s" />
+      <OrbitMark
+        style="top:108px;right:46px;width:146px;height:146px"
+        orbit="9s"
+        core="16px"
+        satellite="9px"
+      />
       <div class="hero__mark" data-reveal>
         <span class="hero__wordmark">AUBREY&nbsp;NORTH</span>
       </div>
@@ -111,7 +116,12 @@ const jsonLd = [
 
     <!-- SAY LESS -->
     <section id="sayless" class="dark">
-      <OrbitMark class="dark__deco" orbit="11s" />
+      <OrbitMark
+        style="top:84px;right:64px;width:120px;height:120px"
+        orbit="11s"
+        core="13px"
+        satellite="8px"
+      />
       <div class="wrap section__pad dark__inner">
         <p class="eyebrow eyebrow--rust" data-reveal>The 1/8th principle</p>
         <h2 class="sayless__h2" data-reveal>
@@ -162,7 +172,12 @@ const jsonLd = [
 
     <!-- CONTACT -->
     <section id="contact" class="dark dark--rule">
-      <OrbitMark class="contact__deco" orbit="12s" />
+      <OrbitMark
+        style="bottom:72px;left:50%;width:104px;height:104px"
+        orbit="12s"
+        core="11px"
+        satellite="7px"
+      />
       <div class="wrap section__pad contact__grid">
         <div data-reveal>
           <p class="eyebrow eyebrow--rust">Coffee + Chat</p>
@@ -245,12 +260,6 @@ const jsonLd = [
     padding-top: 104px;
     padding-bottom: 92px;
     position: relative;
-  }
-  .hero__deco {
-    top: 108px;
-    right: 46px;
-    width: 146px;
-    height: 146px;
   }
   .hero__mark {
     display: flex;
@@ -405,12 +414,6 @@ const jsonLd = [
   .dark--rule {
     border-top: 1px solid rgba(27, 26, 23, 0.1);
   }
-  .dark__deco {
-    top: 84px;
-    right: 64px;
-    width: 120px;
-    height: 120px;
-  }
   .dark__inner {
     position: relative;
     padding-top: 116px;
@@ -521,14 +524,6 @@ const jsonLd = [
   }
 
   /* CONTACT */
-  .contact__deco {
-    bottom: 72px;
-    left: 50%;
-    top: auto;
-    right: auto;
-    width: 104px;
-    height: 104px;
-  }
   .contact__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));

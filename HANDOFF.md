@@ -43,3 +43,35 @@ live; the keys are set as GitHub Actions secrets.
 
 - `PUBLIC_SUPABASE_URL` = https://qeafetctmtnqonhwhhlw.supabase.co
 - `PUBLIC_SUPABASE_ANON_KEY` = the publishable (`sb_publishable_…`) key
+
+---
+
+## Post-review punch list (do these on `migrate/astro-static-seo`, then merge)
+
+The build was reviewed and passes every item in the Definition of Done. One fix before merge:
+
+### 1. Replace the SVG Open Graph image with a raster PNG
+
+`public/og-default.svg` is used for `og:image` / `twitter:image`. Social scrapers
+(Twitter/X, Facebook, LinkedIn, iMessage, Slack) do **not** reliably render SVG preview
+cards, so links to the site would show no image.
+
+- Produce a **1200×630 PNG** on-brand for the default OG card: Paper `#f6f3ec` background,
+  Ink `#1b1a17` wordmark in Scenario, terracotta `#C0593B` orbital mark, plus the endorsement
+  line "A Cunning Corp company." Keep it quiet — obey `voice.rules`; no taglines that aren't
+  in copylock. Save as `public/og-default.png`.
+- Point `og:image` and `twitter:image` at `/og-default.png` (absolute URL via the `site`
+  config). Set `twitter:card` to `summary_large_image`. Add `og:image:width` 1200 and
+  `og:image:height` 630.
+- Leave the per-Read OG image on the same default for now (a per-Read generator can come
+  later — do not build it in this pass).
+- Rebuild and confirm the built HTML references `/og-default.png` and the file exists in
+  `dist/`.
+
+### 2. Then merge
+
+Once the OG image is fixed and `npm run build` is clean, **merge
+`migrate/astro-static-seo` into `main`** and push. The Pages workflow deploys on push to
+`main`. After it deploys, sanity-check the live site: View Source on a Read shows the full
+article text, and one test submission on the contact form lands a row in the Supabase
+`contact_submissions` table.

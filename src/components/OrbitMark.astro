@@ -1,22 +1,35 @@
 ---
 // Decorative orbiting-dot mark from the design source. Purely ornamental —
 // hidden on mobile and for reduced-motion, aria-hidden always.
+// Positioning comes in as an inline `style` because scoped parent classes do
+// not reach a child component's root element in Astro.
 interface Props {
-  class?: string;
+  style?: string; // position/size, e.g. "top:108px;right:46px;width:146px;height:146px"
   orbit?: string; // orbit animation duration
+  core?: string; // centre dot diameter
+  satellite?: string; // orbiting dot diameter
 }
-const { class: className = '', orbit = '9s' } = Astro.props;
+const {
+  style = '',
+  orbit = '9s',
+  core = '16px',
+  satellite = '9px',
+} = Astro.props;
 ---
 
-<div class:list={['an-orbit', className]} data-deco aria-hidden="true">
+<div class="an-orbit" data-deco aria-hidden="true" style={style}>
   <div class="an-orbit__ring an-orbit__ring--pulse"></div>
   <div class="an-orbit__ring an-orbit__ring--pulse an-orbit__ring--delay"></div>
   <div class="an-orbit__ring an-orbit__ring--static"></div>
   <div class="an-orbit__spin" style={`animation-duration:${orbit}`}>
-    <div class="an-orbit__satellite"></div>
+    <div
+      class="an-orbit__satellite"
+      style={`width:${satellite};height:${satellite};margin-left:calc(${satellite} / -2)`}
+    >
+    </div>
   </div>
   <div class="an-orbit__center">
-    <div class="an-orbit__core"></div>
+    <div class="an-orbit__core" style={`width:${core};height:${core}`}></div>
   </div>
 </div>
 
@@ -50,9 +63,6 @@ const { class: className = '', orbit = '9s' } = Astro.props;
     position: absolute;
     top: -4px;
     left: 50%;
-    width: 9px;
-    height: 9px;
-    margin-left: -4.5px;
     border-radius: 50%;
     background: var(--rust);
   }
@@ -64,8 +74,6 @@ const { class: className = '', orbit = '9s' } = Astro.props;
     justify-content: center;
   }
   .an-orbit__core {
-    width: 16px;
-    height: 16px;
     border-radius: 50%;
     background: var(--rust);
     animation: anBreathe 3.6s ease-in-out infinite, anGlow 3.6s ease-in-out infinite;

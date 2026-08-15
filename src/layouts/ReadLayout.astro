@@ -187,11 +187,16 @@ const jsonLd = {
     color: var(--body);
     max-width: 68ch;
   }
+  /* Reset direct children first, then space them with the owl selector. The
+     reset uses no element type so it stays lower-specificity than the flow
+     and heading rules below (which must win). */
+  .an-prose > * {
+    margin: 0;
+  }
   .an-prose > * + * {
     margin-top: 1.35em;
   }
   .an-prose p {
-    margin: 0;
     text-wrap: pretty;
   }
   .an-prose h2 {
@@ -235,7 +240,6 @@ const jsonLd = {
   }
   .an-prose ul,
   .an-prose ol {
-    margin: 0;
     padding-left: 1.3em;
   }
   .an-prose li + li {
