@@ -1,0 +1,148 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import ReadCard from './ReadCard.astro';
+import { SITE, LANES, type LaneKey } from '../consts';
+
+// Shared body for the three static lane pages (screen/type/business). Kept as
+// static named routes so they never collide with the dynamic [slug] route.
+interface Props {
+  lane: LaneKey;
+}
+const { lane } = Astro.props;
+const laneMeta = LANES[lane];
+
+const reads = (
+  await getCollection('reads', ({ data }) => !data.draft && data.lane === lane)
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const title = `${laneMeta.label} Reads — Aubrey North`;
+const description = `${laneMeta.label} Reads from Aubrey North — the ${laneMeta.label.toLowerCase()} lane. Short pieces on narrative and the story a business is actually telling.`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${laneMeta.label} Reads`,
+  url: new URL(`/reads/${laneMeta.slug}/`, SITE.url).href,
+  description,
+  isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+};
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Nav />
+
+  <main class="lane">
+    <header class="wrap lane__head" data-reveal>
+      <p class="lane__eyebrow">
+        <a href="/reads/">The Reads</a> · {laneMeta.label}
+      </p>
+      <h1 class="lane__h1">{laneMeta.label} Reads</h1>
+      <nav class="lane__nav" aria-label="Read lanes">
+        {
+          Object.values(LANES).map((l) => (
+            <a
+              href={`/reads/${l.slug}/`}
+              class="lane__pill"
+              aria-current={l.slug === laneMeta.slug ? 'page' : undefined}
+            >
+              {l.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <section class="wrap lane__list">
+      {
+        reads.length === 0 ? (
+          <p class="lane__empty">Nothing in this lane yet.</p>
+        ) : (
+          reads.map((entry) => (
+            <ReadCard
+              slug={entry.id}
+              title={entry.data.title}
+              description={entry.data.description}
+              lane={entry.data.lane}
+              pubDate={entry.data.pubDate}
+            />
+          ))
+        )
+      }
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .lane__head {
+    padding-top: 88px;
+    padding-bottom: 48px;
+  }
+  .lane__eyebrow {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+  .lane__eyebrow a {
+    color: var(--rust);
+    text-decoration: none;
+  }
+  .lane__eyebrow a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .lane__h1 {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 30px;
+    color: var(--ink);
+  }
+  .lane__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .lane__pill {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid rgba(27, 26, 23, 0.18);
+    border-radius: 999px;
+    padding: 9px 18px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .lane__pill:hover {
+    color: var(--rust);
+    border-color: var(--rust);
+  }
+  .lane__pill[aria-current='page'] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .lane__list {
+    padding-bottom: 96px;
+    border-bottom: 1px solid rgba(27, 26, 23, 0.12);
+  }
+  .lane__empty {
+    padding: 40px 0;
+    border-top: 1px solid rgba(27, 26, 23, 0.12);
+    font-size: 18px;
+    color: var(--muted);
+  }
+</style>

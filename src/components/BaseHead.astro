@@ -1,0 +1,77 @@
+---
+import { SITE } from '../consts';
+import '../styles/global.css';
+
+// Server-rendered SEO head. Every route emits a unique title + description,
+// canonical, OG/Twitter, and structured data in the initial HTML.
+// (See CLAUDE.md — SEO requirements are acceptance criteria.)
+interface Props {
+  title: string;
+  description: string;
+  /** JSON-LD object(s) for this page (Article / WebSite / Organization). */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Absolute or site-relative OG image. Defaults to the brand card (1200×630
+   *  PNG — social scrapers do not reliably render SVG preview cards). */
+  image?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  jsonLd,
+  image = '/og-default.png',
+  ogType = 'website',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const imageUrl = new URL(image, SITE.url).href;
+const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon-an.svg" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Preload the two above-the-fold display faces to blunt FOUT. -->
+<link
+  rel="preload"
+  href="/fonts/Recoleta-300.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<!-- Structured data -->
+{
+  jsonLdArray.map((node) => (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(node)}
+    />
+  ))
+}

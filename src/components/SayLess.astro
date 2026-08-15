@@ -1,0 +1,241 @@
+---
+// The 1/8th principle demo: cycle a pitch from fuller to three words.
+// Copy is reused verbatim from the live site (approved). All pitches are
+// server-rendered; without JS the default one is fully readable.
+const pitches = [
+  { label: 'Three words', text: 'Clarity. Story. Understanding.', size: 'clamp(40px,7vw,86px)', lh: '1.04' },
+  { label: 'One line', text: 'We help businesses define the story people actually understand.', size: 'clamp(26px,4vw,46px)', lh: '1.14' },
+  { label: 'Short', text: 'Not branding, not marketing. We work on the narrative underneath both — because before any of it works, your business has to make sense to a human being. We help you say less, and make it land.', size: 'clamp(19px,2.3vw,27px)', lh: '1.42' },
+  { label: 'Fuller', text: 'Most businesses that aren’t converting don’t have a marketing problem — they have a clarity problem. No one quite understands who they are. Aubrey North is a boutique narrative advisory. We strip a business back to what it actually is, what its customer actually feels, and where the two have come apart — then rebuild the story so it lands immediately, feels intentional, and earns trust. We don’t help you say more. We help you say less, clearly.', size: 'clamp(16px,1.7vw,20px)', lh: '1.55' },
+];
+
+const countWords = (t: string) =>
+  t.replace(/[——.,]/g, ' ').split(/\s+/).filter(Boolean).length;
+
+const defaultIdx = 3; // start "Fuller", so the reader can subtract toward truth
+const counts = pitches.map((p) => countWords(p.text));
+---
+
+<div class="an-sayless" data-default={defaultIdx}>
+  <div class="an-sayless__bar">
+    <div class="an-sayless__meta">
+      <span class="an-sayless__the">The pitch ·</span>
+      <span class="an-sayless__label" id="an-sl-label">{pitches[defaultIdx].label}</span>
+    </div>
+    <div class="an-sayless__count">
+      <span class="an-sayless__num" id="an-sl-count">{counts[defaultIdx]}</span>
+      <span class="an-sayless__wordlabel">words</span>
+    </div>
+  </div>
+
+  <div class="an-sayless__stage">
+    {
+      pitches.map((p, i) => (
+        <p
+          class="an-sayless__pitch"
+          data-pitch={i}
+          data-count={counts[i]}
+          data-label={p.label}
+          hidden={i !== defaultIdx}
+          style={`font-size:${p.size};line-height:${p.lh}`}
+        >
+          {p.text}
+        </p>
+      ))
+    }
+  </div>
+
+  <div class="an-sayless__nav">
+    <button type="button" class="an-sayless__btn" id="an-sl-less">← Say less</button>
+    <div class="an-sayless__dots" id="an-sl-dots">
+      {
+        pitches.map((p, i) => (
+          <button
+            type="button"
+            class="an-sayless__dot"
+            data-dot={i}
+            aria-label={p.label}
+            aria-current={i === defaultIdx ? 'true' : 'false'}
+          />
+        ))
+      }
+    </div>
+    <button type="button" class="an-sayless__btn" id="an-sl-more">Say more →</button>
+  </div>
+</div>
+
+<style>
+  .an-sayless {
+    border: 1px solid rgba(241, 236, 226, 0.16);
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 920px;
+    background: var(--dark-panel);
+  }
+  .an-sayless__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 26px;
+    border-bottom: 1px solid rgba(241, 236, 226, 0.12);
+    flex-wrap: wrap;
+  }
+  .an-sayless__meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .an-sayless__the {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .an-sayless__label {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f1ece2;
+  }
+  .an-sayless__count {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .an-sayless__num {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--rust);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .an-sayless__wordlabel {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: var(--font-wordmark);
+  }
+  .an-sayless__stage {
+    padding: 42px 26px;
+    min-height: 188px;
+    display: flex;
+    align-items: center;
+  }
+  .an-sayless__pitch {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--paper);
+    text-wrap: pretty;
+    animation: anFade 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .an-sayless__nav {
+    display: flex;
+    align-items: stretch;
+    border-top: 1px solid rgba(241, 236, 226, 0.12);
+  }
+  .an-sayless__btn {
+    flex: 1;
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 20px 22px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: #f1ece2;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .an-sayless__btn:hover:not(:disabled) {
+    color: var(--rust);
+  }
+  .an-sayless__btn:disabled {
+    color: #5a554c;
+    cursor: default;
+  }
+  .an-sayless__dots {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 22px;
+    border-left: 1px solid rgba(241, 236, 226, 0.12);
+    border-right: 1px solid rgba(241, 236, 226, 0.12);
+  }
+  .an-sayless__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: rgba(241, 236, 226, 0.3);
+    transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .an-sayless__dot[aria-current='true'] {
+    width: 22px;
+    background: var(--rust);
+  }
+  @media (max-width: 640px) {
+    .an-sayless__btn {
+      padding: 16px 12px;
+      font-size: 11px;
+    }
+    .an-sayless__dots {
+      padding: 0 12px;
+    }
+  }
+</style>
+
+<script>
+  const root = document.querySelector('.an-sayless') as HTMLElement | null;
+  if (root) {
+    const pitches = Array.from(
+      root.querySelectorAll<HTMLElement>('[data-pitch]')
+    );
+    const dots = Array.from(root.querySelectorAll<HTMLElement>('[data-dot]'));
+    const labelEl = document.getElementById('an-sl-label')!;
+    const countEl = document.getElementById('an-sl-count')!;
+    const lessBtn = document.getElementById('an-sl-less') as HTMLButtonElement;
+    const moreBtn = document.getElementById('an-sl-more') as HTMLButtonElement;
+    const max = pitches.length - 1;
+    let idx = Number(root.dataset.default ?? '0');
+
+    const render = () => {
+      pitches.forEach((el, i) => (el.hidden = i !== idx));
+      dots.forEach((d, i) =>
+        d.setAttribute('aria-current', i === idx ? 'true' : 'false')
+      );
+      const active = pitches[idx];
+      labelEl.textContent = active.dataset.label ?? '';
+      countEl.textContent = active.dataset.count ?? '';
+      lessBtn.disabled = idx === 0;
+      moreBtn.disabled = idx === max;
+    };
+
+    lessBtn.addEventListener('click', () => {
+      idx = Math.max(0, idx - 1);
+      render();
+    });
+    moreBtn.addEventListener('click', () => {
+      idx = Math.min(max, idx + 1);
+      render();
+    });
+    dots.forEach((d, i) =>
+      d.addEventListener('click', () => {
+        idx = i;
+        render();
+      })
+    );
+    render();
+  }
+</script>

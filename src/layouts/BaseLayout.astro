@@ -1,0 +1,60 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  image?: string;
+  ogType?: 'website' | 'article';
+}
+
+const { title, description, jsonLd, image, ogType } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      jsonLd={jsonLd}
+      image={image}
+      ogType={ogType}
+    />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Progressive enhancement only: content is fully readable without this.
+         Opts into the scroll-reveal transition when JS is available. -->
+    <script>
+      const root = document.documentElement;
+      root.classList.add('js-reveal');
+      const els = Array.from(document.querySelectorAll('[data-reveal]'));
+      const show = (el: Element) => el.classList.add('is-visible');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(show);
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                show(e.target);
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+        // Reveal anything already in view immediately, observe the rest.
+        const vh = window.innerHeight || root.clientHeight;
+        els.forEach((el) => {
+          const r = el.getBoundingClientRect();
+          if (r.top < vh * 0.94 && r.bottom > 0) show(el);
+          else io.observe(el);
+        });
+      }
+    </script>
+  </body>
+</html>

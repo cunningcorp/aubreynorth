@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import ReadLayout from '../../layouts/ReadLayout.astro';
+
+export async function getStaticPaths() {
+  const reads = await getCollection('reads', ({ data }) => !data.draft);
+  return reads.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, lane, pubDate, updatedDate, tags } = entry.data;
+---
+
+<ReadLayout
+  title={title}
+  description={description}
+  lane={lane}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  tags={tags}
+>
+  <Content />
+</ReadLayout>

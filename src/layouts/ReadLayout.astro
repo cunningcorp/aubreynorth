@@ -1,0 +1,265 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, LANES, type LaneKey } from '../consts';
+
+interface Props {
+  title: string;
+  description: string;
+  lane: LaneKey;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+}
+
+const { title, description, lane, pubDate, updatedDate, tags } = Astro.props;
+const laneMeta = LANES[lane];
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+const iso = (d: Date) => d.toISOString().split('T')[0];
+
+// Article structured data — the SEO surface (see CLAUDE.md).
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: iso(pubDate),
+  dateModified: iso(updatedDate ?? pubDate),
+  author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/logo.png', SITE.url).href,
+      width: 1024,
+      height: 1024,
+    },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  articleSection: laneMeta.label,
+  ...(tags && tags.length ? { keywords: tags.join(', ') } : {}),
+};
+---
+
+<BaseLayout
+  title={`${title} — Aubrey North`}
+  description={description}
+  jsonLd={jsonLd}
+  ogType="article"
+>
+  <Nav />
+
+  <main class="read">
+    <article class="wrap read__inner">
+      <header class="read__head" data-reveal>
+        <p class="read__lane">
+          <a href={`/reads/${laneMeta.slug}/`}>{laneMeta.label} Read</a>
+        </p>
+        <h1 class="read__title">{title}</h1>
+        <p class="read__meta">
+          <time datetime={iso(pubDate)}>{fmt(pubDate)}</time>
+          {
+            updatedDate && (
+              <span class="read__updated">
+                · Updated <time datetime={iso(updatedDate)}>{fmt(updatedDate)}</time>
+              </span>
+            )
+          }
+        </p>
+      </header>
+
+      <div class="an-prose" data-reveal>
+        <slot />
+      </div>
+
+      {
+        tags && tags.length > 0 && (
+          <ul class="read__tags" aria-label="Tags">
+            {tags.map((t) => (
+              <li>{t}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      <nav class="read__back">
+        <a href="/reads/">← All Reads</a>
+      </nav>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .read__inner {
+    max-width: 760px;
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+  .read__head {
+    margin-bottom: 48px;
+  }
+  .read__lane {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 22px;
+  }
+  .read__lane a {
+    color: var(--rust);
+    text-decoration: none;
+  }
+  .read__lane a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .read__title {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    margin: 0 0 22px;
+    text-wrap: pretty;
+    color: var(--ink);
+  }
+  .read__meta {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    margin: 0;
+  }
+  .read__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+  }
+  .read__tags li {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid rgba(27, 26, 23, 0.16);
+    border-radius: 999px;
+    padding: 7px 14px;
+  }
+  .read__back {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(27, 26, 23, 0.1);
+  }
+  .read__back a {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .read__back a:hover {
+    color: var(--rust);
+  }
+</style>
+
+<!-- Prose styles apply to markdown-rendered content (slotted), so they must
+     be global, scoped under .an-prose. -->
+<style is:global>
+  .an-prose {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.66;
+    color: var(--body);
+    max-width: 68ch;
+  }
+  /* Reset direct children first, then space them with the owl selector. The
+     reset uses no element type so it stays lower-specificity than the flow
+     and heading rules below (which must win). */
+  .an-prose > * {
+    margin: 0;
+  }
+  .an-prose > * + * {
+    margin-top: 1.35em;
+  }
+  .an-prose p {
+    text-wrap: pretty;
+  }
+  .an-prose h2 {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(24px, 3.4vw, 34px);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 1.9em 0 0;
+  }
+  .an-prose h3 {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(20px, 2.6vw, 26px);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 1.6em 0 0;
+  }
+  .an-prose a {
+    color: var(--rust);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .an-prose strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .an-prose em {
+    font-style: italic;
+  }
+  .an-prose blockquote {
+    margin: 1.6em 0;
+    padding-left: 24px;
+    border-left: 2px solid var(--rust);
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(21px, 2.6vw, 27px);
+    line-height: 1.3;
+    color: var(--ink);
+  }
+  .an-prose ul,
+  .an-prose ol {
+    padding-left: 1.3em;
+  }
+  .an-prose li + li {
+    margin-top: 0.5em;
+  }
+  .an-prose hr {
+    border: none;
+    border-top: 1px solid rgba(27, 26, 23, 0.14);
+    margin: 2.4em 0;
+  }
+  .an-prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: rgba(27, 26, 23, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .an-prose img {
+    border-radius: 6px;
+  }
+</style>

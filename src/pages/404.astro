@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Not found — Aubrey North';
+const description = 'That page is not here. Find your way back to the work.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Nav />
+  <main class="wrap nf">
+    <p class="nf__code">404</p>
+    <h1 class="nf__h1">Nothing at this address.</h1>
+    <p class="nf__body">
+      The page has moved or never existed. Try the <a href="/">homepage</a> or
+      the <a href="/reads/">Reads</a>.
+    </p>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .nf {
+    padding-top: 120px;
+    padding-bottom: 140px;
+    max-width: 640px;
+  }
+  .nf__code {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 22px;
+  }
+  .nf__h1 {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 24px;
+    color: var(--ink);
+  }
+  .nf__body {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--body);
+    margin: 0;
+  }
+  .nf__body a {
+    color: var(--rust);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

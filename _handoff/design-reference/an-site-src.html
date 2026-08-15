@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aubrey North — Narrative Advisory</title>
+<meta name="description" content="Aubrey North — a narrative advisory. We help businesses define the story people actually understand.">
+<link rel="icon" type="image/svg+xml" href="favicon-an.svg">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#f6f3ec">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f6f3ec"/>
+    <g transform="translate(600 300)">
+      <circle cx="0" cy="0" r="120" fill="none" stroke="#C0593B" stroke-width="4"/>
+      <circle cx="0" cy="0" r="34" fill="#C0593B"/>
+      <circle cx="0" cy="-120" r="16" fill="#C0593B"/>
+    </g>
+    <text x="600" y="560" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="92" fill="#1b1a17">AUBREY NORTH</text>
+    <text x="600" y="628" text-anchor="middle" font-family="Georgia,serif" font-size="30" letter-spacing="6" fill="#C0593B">NARRATIVE ADVISORY</text>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Recoleta';src:url("fonts/Recoleta-300.woff2") format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Scenario';src:url("fonts/Scenario-700.ttf") format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Futura';src:url("fonts/Futura-400.ttf") format('truetype');font-weight:400;font-style:normal;font-display:swap}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f6f3ec;color:#1b1a17;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:#1b1a17;color:#f6f3ec}
+@keyframes anFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes anBreathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.12);opacity:.55}}
+@keyframes anDrift{0%{transform:translate(0,0)}50%{transform:translate(0,-9px)}100%{transform:translate(0,0)}}
+@keyframes anPulseRing{0%{transform:scale(.5);opacity:.7}100%{transform:scale(1.18);opacity:0}}
+@keyframes anOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes anGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,89,59,0)}50%{box-shadow:0 0 22px 5px rgba(192,89,59,.5)}}
+input::placeholder,textarea::placeholder{color:#a39c8f}
+@media(max-width:768px){[data-deco]{display:none!important}}
+@media(max-width:640px){
+[data-pad]{padding-top:64px!important;padding-bottom:64px!important;padding-left:22px!important;padding-right:22px!important}
+[data-nav]{padding-left:22px!important;padding-right:22px!important;gap:14px!important}
+[data-formrow]{grid-template-columns:1fr!important}
+[data-tier]{grid-template-columns:1fr!important;gap:8px!important}
+[data-price]{text-align:left!important;padding-top:6px!important}
+[data-wcell]{padding-left:0!important;padding-right:0!important;border-left:none!important}
+[data-pnav] button{padding:16px 12px!important;font-size:11px!important}
+[data-pnav] > div{padding:0 12px!important}
+}
+</style>
+</helmet>
+
+
+<div style="font-family:'Futura','Helvetica Neue',Arial,sans-serif;font-weight:400;background:#f6f3ec;overflow-x:hidden">
+
+<!-- NAV -->
+<nav style="position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(27,26,23,0.10)">
+  <div data-nav="" style="max-width:1180px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <div style="display:flex;align-items:baseline;gap:0.34em;cursor:default">
+      <span style="font-family:'Recoleta',serif;font-size:13px;color:#1b1a17">the</span>
+      <span style="font-family:'Scenario',serif;font-weight:700;font-size:clamp(15px,4.6vw,19px);letter-spacing:-0.01em;color:#1b1a17">AUBREY&nbsp;NORTH</span>
+      <span style="font-family:'Recoleta',serif;font-size:12px;color:#6f6a60">company</span>
+    </div>
+    <button onclick="{{ goContact }}" style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#f1ece2;background:#1b1a17;border:none;padding:11px 20px;border-radius:999px;cursor:pointer;transition:transform .25s ease,background .25s ease" style-hover="background:#C0593B;transform:translateY(-1px)">Coffee&nbsp;+&nbsp;Chat</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header data-pad="" style="max-width:1180px;margin:0 auto;padding:104px 32px 92px;position:relative">
+  <div data-deco="" style="position:absolute;top:108px;right:46px;width:146px;height:146px;animation:anDrift 7s ease-in-out infinite" aria-hidden="true">
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.45);animation:anPulseRing 3.6s ease-out infinite"></div>
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.45);animation:anPulseRing 3.6s ease-out infinite 1.8s"></div>
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.30)"></div>
+    <div style="position:absolute;inset:0;animation:anOrbit 9s linear infinite">
+      <div style="position:absolute;top:-4px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#C0593B"></div>
+    </div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+      <div style="width:16px;height:16px;border-radius:50%;background:#C0593B;animation:anBreathe 3.6s ease-in-out infinite,anGlow 3.6s ease-in-out infinite"></div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;gap:0.4em;flex-wrap:wrap;margin-bottom:46px" data-reveal="" data-avoid="">
+    <span style="font-family:'Scenario',serif;font-weight:700;font-size:clamp(22px,6.4vw,58px);letter-spacing:-0.015em;color:#1b1a17;line-height:0.9">AUBREY&nbsp;NORTH</span>
+  </div>
+
+  <div data-reveal="" data-avoid="" style="max-width:880px">
+    <p style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C0593B;margin:0 0 26px">Narrative Advisory</p>
+    <h1 style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(34px,6vw,72px);line-height:1.04;letter-spacing:-0.018em;margin:0 0 30px;text-wrap:pretty;color:#1b1a17">We help businesses define the story people <em style="font-style:italic;color:#C0593B">actually</em> understand.</h1>
+    <p style="font-size:clamp(18px,2vw,22px);line-height:1.6;color:#4a463e;max-width:620px;margin:0 0 40px;text-wrap:pretty">Not branding. Not marketing. We work upstream of both, on the narrative they both depend on.</p>
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+      <button onclick="{{ goContact }}" style="font-family:'Scenario',serif;font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#f1ece2;background:#1b1a17;border:none;padding:16px 30px;border-radius:999px;cursor:pointer;transition:transform .25s ease,background .25s ease" style-hover="background:#C0593B;transform:translateY(-2px)">Start a conversation</button>
+      <span style="font-size:15px;color:#8a8378">Complimentary. No obligation.</span>
+    </div>
+  </div>
+</header>
+
+<!-- THE HOOK -->
+<section style="border-top:1px solid rgba(27,26,23,0.10)">
+  <div data-pad="" style="max-width:1180px;margin:0 auto;padding:108px 32px;display:grid;grid-template-columns:1fr;gap:8px">
+    <p data-reveal="" style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#8a8378;margin:0 0 22px">The problem we name</p>
+    <h2 data-reveal="" style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(28px,4.4vw,52px);line-height:1.14;letter-spacing:-0.012em;margin:0 0 34px;max-width:960px;text-wrap:pretty;color:#1b1a17">If your business isn't converting the way it should, the problem usually isn't marketing. It's that no one understands who you are.</h2>
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:40px;max-width:920px;margin-top:18px">
+      <p style="font-size:18px;line-height:1.62;color:#4a463e;margin:0">Marketing only amplifies a message. If the message underneath is unclear, louder just means more people hear something confusing.</p>
+      <p style="font-size: 22px; line-height: 1.4; color: #1b1a17; margin: 0; font-style: normal">You don't have a reach problem. You have a <span style="color:#C0593B">clarity</span> problem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE SIT -->
+<section style="border-top:1px solid rgba(27,26,23,0.10)">
+  <div data-pad="" style="max-width:1180px;margin:0 auto;padding:108px 32px">
+    <p data-reveal="" style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#8a8378;margin:0 0 22px">Where we sit</p>
+    <h2 data-reveal="" style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(26px,3.6vw,42px);line-height:1.16;letter-spacing:-0.01em;margin:0 0 64px;max-width:760px;text-wrap:pretty;color:#1b1a17">Get the story right and branding has something true to dress, and marketing has something clear to carry.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:0;border-top:1px solid rgba(27,26,23,0.14)">
+      <div data-reveal="" data-wcell="" style="padding:38px 32px 38px 0;border-bottom:1px solid rgba(27,26,23,0.10)">
+        <p style="font-family:'Scenario',serif;font-weight:700;font-size:13px;letter-spacing:0.10em;text-transform:uppercase;color:#8a8378;margin:0 0 16px">01 · Branding</p>
+        <p style="font-family:'Recoleta',serif;font-size:27px;line-height:1.2;margin:0;color:#1b1a17">makes you <br>recognisable.</p>
+      </div>
+      <div data-reveal="" data-wcell="" style="padding:38px 32px;border-bottom:1px solid rgba(27,26,23,0.10);border-left:1px solid rgba(27,26,23,0.10)">
+        <p style="font-family:'Scenario',serif;font-weight:700;font-size:13px;letter-spacing:0.10em;text-transform:uppercase;color:#8a8378;margin:0 0 16px">02 · Marketing</p>
+        <p style="font-family:'Recoleta',serif;font-size:27px;line-height:1.2;margin:0;color:#1b1a17">makes you <br>heard.</p>
+      </div>
+      <div data-reveal="" data-wcell="" style="padding:38px 0 38px 32px;border-bottom:1px solid #C0593B;border-left:1px solid rgba(27,26,23,0.10);position:relative">
+        <p style="font-family:'Scenario',serif;font-weight:700;font-size:13px;letter-spacing:0.10em;text-transform:uppercase;color:#C0593B;margin:0 0 16px">03 · Narrative</p>
+        <p style="font-family:'Recoleta',serif;font-size:27px;line-height:1.2;margin:0;color:#1b1a17">makes you <em style="font-style:italic;color:#C0593B">understood.</em></p>
+        <p style="font-size:14px;color:#8a8378;margin:18px 0 0">We do the third — so the first two can work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAY LESS — dark centerpiece -->
+<section id="sayless" style="background:#201e1a;color:#f1ece2;position:relative;overflow:hidden">
+  <div data-deco="" style="position:absolute;top:84px;right:64px;width:120px;height:120px;animation:anDrift 8s ease-in-out infinite" aria-hidden="true">
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.40);animation:anPulseRing 4s ease-out infinite"></div>
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.22)"></div>
+    <div style="position:absolute;inset:0;animation:anOrbit 11s linear infinite">
+      <div style="position:absolute;top:-3.5px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#C0593B"></div>
+    </div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+      <div style="width:13px;height:13px;border-radius:50%;background:#C0593B;animation:anBreathe 3.6s ease-in-out infinite,anGlow 3.6s ease-in-out infinite"></div>
+    </div>
+  </div>
+  <div data-pad="" style="max-width:1180px;margin:0 auto;padding:116px 32px;position:relative">
+    <p data-reveal="" data-avoid="" style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C0593B;margin:0 0 22px">The 1/8th principle</p>
+    <h2 data-reveal="" data-avoid="" style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(30px,5vw,60px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 20px;max-width:840px;text-wrap:pretty;color:#f6f3ec">We don't help you say more. We help you say <em style="font-style:italic;color:#C0593B">less</em>, and make it land.</h2>
+    <p data-reveal="" data-avoid="" style="font-size:18px;line-height:1.6;color:#b3ab9c;max-width:600px;margin:0 0 56px">You don't pitch everything you can do. We help you choose the eighth that lands — the one that earns you the right to the rest. Try it:</p>
+
+    <div data-reveal="" data-avoid="" style="border:1px solid rgba(241,236,226,0.16);border-radius:6px;overflow:hidden;max-width:920px;background:#1b1a17">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:1px solid rgba(241,236,226,0.12);flex-wrap:wrap">
+        <div style="display:flex;align-items:baseline;gap:14px">
+          <span style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8a8378">The pitch ·</span>
+          <span style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#f1ece2">{{ lengthLabel }}</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-family:'Scenario',serif;font-weight:700;font-size:30px;color:#C0593B;line-height:1;font-variant-numeric:tabular-nums">{{ wordCount }}</span>
+          <span style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:#8a8378;font-family:'Scenario',serif">words</span>
+        </div>
+      </div>
+      <div style="padding:42px 26px;min-height:188px;display:flex;align-items:center">
+        {{ pitchEl }}
+      </div>
+      <div data-pnav="" style="display:flex;align-items:stretch;border-top:1px solid rgba(241,236,226,0.12)">
+        <button onclick="{{ sayLess }}" disabled="{{ atMin }}" style="{{ lessBtnStyle }}">← Say less</button>
+        <div style="display:flex;align-items:center;gap:9px;padding:0 22px;border-left:1px solid rgba(241,236,226,0.12);border-right:1px solid rgba(241,236,226,0.12)">
+          {{ dotsEl }}
+        </div>
+        <button onclick="{{ sayMore }}" disabled="{{ atMax }}" style="{{ moreBtnStyle }}">Say more →</button>
+      </div>
+    </div>
+    <p data-reveal="" data-avoid="" style="font-size:14px;color:#6f6a60;margin:22px 0 0;font-style:italic">Restraint is the craft. We subtract until it's true.</p>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="work" style="border-top:1px solid rgba(27,26,23,0.10)">
+  <div data-pad="" style="max-width:1180px;margin:0 auto;padding:112px 32px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:56px">
+      <div data-reveal="">
+        <p style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#8a8378;margin:0 0 22px">How we work</p>
+        <h2 style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(28px,4vw,48px);line-height:1.1;letter-spacing:-0.012em;margin:0;max-width:640px;text-wrap:pretty;color:#1b1a17">We work in the next three to six months — not the next ten years.</h2>
+      </div>
+      <p data-reveal="" style="font-size:15px;color:#8a8378;max-width:240px;margin:0">Boutique by design. Select markets.</p>
+    </div>
+
+    <div style="border-top:1px solid rgba(27,26,23,0.16)">
+      <sc-for list="{{ tiers }}" as="tier" hint-placeholder-count="4">
+        <div data-reveal="" data-tier="" style="display:grid;grid-template-columns:54px 1fr auto;gap:28px;align-items:start;padding:34px 0;border-bottom:1px solid rgba(27,26,23,0.10)">
+          <span style="font-family:'Scenario',serif;font-weight:700;font-size:14px;color:#C0593B;padding-top:6px">{{ tier.no }}</span>
+          <div>
+            <h3 style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(22px,2.6vw,30px);line-height:1.12;margin:0 0 10px;color:#1b1a17">{{ tier.name }}</h3>
+            <p style="font-size:16px;line-height:1.55;color:#6f6a60;margin:0;max-width:560px">{{ tier.desc }}</p>
+          </div>
+          <span style="font-family:'Scenario',serif;font-weight:700;font-size:clamp(16px,1.8vw,21px);color:#1b1a17;white-space:nowrap;text-align:right;padding-top:4px" data-price="">{{ tier.price }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#201e1a;color:#f1ece2;border-top:1px solid rgba(27,26,23,0.10);position:relative;overflow:hidden">
+  <div data-deco="" style="position:absolute;bottom:72px;left:50%;width:104px;height:104px;animation:anDrift 9s ease-in-out infinite" aria-hidden="true">
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.38);animation:anPulseRing 4.4s ease-out infinite"></div>
+    <div style="position:absolute;inset:0;border-radius:50%;border:1px solid rgba(192,89,59,0.20)"></div>
+    <div style="position:absolute;inset:0;animation:anOrbit 12s linear infinite">
+      <div style="position:absolute;top:-3px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:#C0593B"></div>
+    </div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+      <div style="width:11px;height:11px;border-radius:50%;background:#C0593B;animation:anBreathe 3.6s ease-in-out infinite,anGlow 3.6s ease-in-out infinite"></div>
+    </div>
+  </div>
+  <div data-pad="" style="max-width:1180px;margin:0 auto;padding:116px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:64px;position:relative">
+    <div data-reveal="" data-avoid="">
+      <p style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C0593B;margin:0 0 22px">Coffee + Chat</p>
+      <h2 style="font-family:'Recoleta',serif;font-weight:300;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.014em;margin:0 0 26px;text-wrap:pretty;color:#f6f3ec">A relaxed conversation about where the friction is.</h2>
+      <p style="font-size:18px;line-height:1.62;color:#b3ab9c;max-width:420px;margin:0 0 40px">Tell us about the business, where it is, where you want it — and most of all, what you want a customer to feel on contact. Complimentary. No obligation.</p>
+      <div style="display:flex;align-items:baseline;gap:0.4em">
+        <span style="font-family:'Recoleta',serif;font-size:15px;color:#b3ab9c">the</span>
+        <span style="font-family:'Scenario',serif;font-weight:700;font-size:22px;letter-spacing:-0.01em;color:#f1ece2">AUBREY&nbsp;NORTH</span>
+        <span style="font-family:'Recoleta',serif;font-size:13px;color:#8a8378">company</span>
+      </div>
+    </div>
+
+    <div data-reveal="" data-avoid="">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="border:1px solid rgba(192,89,59,0.5);border-radius:6px;padding:48px 36px;background:#1b1a17">
+          <p style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C0593B;margin:0 0 18px">Over to you</p>
+          <p style="font-family:'Recoleta',serif;font-size:28px;line-height:1.2;margin:0 0 14px;color:#f6f3ec">Just hit send.</p>
+          <p style="font-size:16px;color:#b3ab9c;margin:0">Thank you, {{ sentName }}. We've opened a pre-filled email in your mail app — send it and we'll reply within two working days.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onsubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:22px">
+          <div data-formrow="" style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Scenario',serif;font-weight:700;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8378">Your name</span>
+              <input value="{{ fName }}" oninput="{{ onName }}" placeholder="Jane Aubrey" style="font-family:'Futura','Helvetica Neue',Arial,sans-serif;font-size:17px;color:#f1ece2;background:transparent;border:none;border-bottom:1px solid rgba(241,236,226,0.28);padding:10px 0;outline:none;transition:border-color .25s ease" style-focus="border-color:#C0593B">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Scenario',serif;font-weight:700;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8378">Business</span>
+              <input value="{{ fBiz }}" oninput="{{ onBiz }}" placeholder="North &amp; Co." style="font-family:'Futura','Helvetica Neue',Arial,sans-serif;font-size:17px;color:#f1ece2;background:transparent;border:none;border-bottom:1px solid rgba(241,236,226,0.28);padding:10px 0;outline:none;transition:border-color .25s ease" style-focus="border-color:#C0593B">
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:9px">
+            <span style="font-family:'Scenario',serif;font-weight:700;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8378">Email</span>
+            <input value="{{ fEmail }}" oninput="{{ onEmail }}" placeholder="jane@northco.uk" style="font-family:'Futura','Helvetica Neue',Arial,sans-serif;font-size:17px;color:#f1ece2;background:transparent;border:none;border-bottom:1px solid rgba(241,236,226,0.28);padding:10px 0;outline:none;transition:border-color .25s ease" style-focus="border-color:#C0593B">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:9px">
+            <span style="font-family:'Scenario',serif;font-weight:700;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8a8378">What should a customer feel on contact?</span>
+            <textarea value="{{ fMsg }}" oninput="{{ onMsg }}" rows="3" placeholder="In a sentence or two…" style="font-family:'Futura','Helvetica Neue',Arial,sans-serif;font-size:17px;color:#f1ece2;background:transparent;border:none;border-bottom:1px solid rgba(241,236,226,0.28);padding:10px 0;outline:none;resize:none;transition:border-color .25s ease" style-focus="border-color:#C0593B"></textarea>
+          </label>
+          <div style="min-height:18px">
+            <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:13px;color:#C0593B;font-style:italic">{{ errorMsg }}</span>
+            </sc-if>
+          </div>
+          <button type="submit" disabled="{{ sending }}" style="align-self:flex-start;font-family:'Scenario',serif;font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#1b1a17;background:#f1ece2;border:none;padding:16px 32px;border-radius:999px;cursor:pointer;transition:transform .25s ease,background .25s ease,opacity .25s ease" style-hover="background:#C0593B;color:#f6f3ec;transform:translateY(-2px)">{{ submitLabel }}</button>
+          <p style="font-size:13px;line-height:1.55;color:#6f6a60;margin:6px 0 0;max-width:440px">Your details stay with us — used only to reply to this enquiry, never shared or added to a list. Read our <a href="#" style="color:#8a8378;text-decoration:underline;text-underline-offset:2px">privacy notice</a>.</p>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#201e1a;color:#6f6a60;border-top:1px solid rgba(241,236,226,0.10)">
+  <div data-nav="" style="max-width:1180px;margin:0 auto;padding:34px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="font-size:13px;line-height:1.5;margin:0;max-width:640px">Aubrey North is a trading name of Cunning Corp Ltd, registered in England and Wales, and of Maurice James LLC-FZ, Dubai, UAE. Strategic and commercial advisory only — not legal or financial advice.</p>
+    <p style="font-family:'Scenario',serif;font-weight:700;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;margin:0;color:#8a8378">Clarity · Story · Understanding</p>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  FORM_ENDPOINT = 'https://formspree.io/f/xzdqnogz';
+
+  state = {
+    idx: 3,
+    fName: '', fBiz: '', fEmail: '', fMsg: '',
+    error: '', sent: false, sentName: '', sending: false
+  };
+
+  pitches = [
+    { label: 'Three words', text: 'Clarity. Story. Understanding.', size: 'clamp(40px,7vw,86px)', lh: '1.04' },
+    { label: 'One line', text: 'We help businesses define the story people actually understand.', size: 'clamp(26px,4vw,46px)', lh: '1.14' },
+    { label: 'Short', text: 'Not branding, not marketing. We work on the narrative underneath both — because before any of it works, your business has to make sense to a human being. We help you say less, and make it land.', size: 'clamp(19px,2.3vw,27px)', lh: '1.42' },
+    { label: 'Fuller', text: 'Most businesses that aren\u2019t converting don\u2019t have a marketing problem — they have a clarity problem. No one quite understands who they are. Aubrey North is a boutique narrative advisory. We strip a business back to what it actually is, what its customer actually feels, and where the two have come apart — then rebuild the story so it lands immediately, feels intentional, and earns trust. We don\u2019t help you say more. We help you say less, clearly.', size: 'clamp(16px,1.7vw,20px)', lh: '1.55' }
+  ];
+
+  countWords(t) {
+    return t.replace(/[\u2014—.,]/g, ' ').split(/\s+/).filter(Boolean).length;
+  }
+
+  componentDidMount() {
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)';
+    });
+    // Reveal anything already in (or near) the viewport right away — robust across bundlers/splash unpack.
+    const revealInView = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      els.forEach(el => {
+        if (el.style.opacity === '1') return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh * 0.94 && r.bottom > 0) show(el);
+      });
+    };
+    revealInView();
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(show);
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => { if (el.style.opacity !== '1') io.observe(el); });
+    // Safety nets: re-check after paint, and guarantee nothing stays hidden.
+    requestAnimationFrame(revealInView);
+    setTimeout(revealInView, 300);
+    this._revealSafety = setTimeout(() => els.forEach(show), 1600);
+
+    this.initFloatMarks();
+  }
+
+  initFloatMarks() {
+    const marks = Array.from(document.querySelectorAll('[data-floatmark]'));
+    if (!marks.length) return;
+    const mq = (q) => window.matchMedia && window.matchMedia(q).matches;
+    if (mq('(max-width: 768px)')) return; // marks are hidden on mobile
+    const reduce = mq('(prefers-reduced-motion: reduce)');
+
+    this._marks = marks.map((el, i) => {
+      const speed = 0.42 + i * 0.06;
+      const dir = i % 2 === 0 ? 1 : -1;
+      return {
+        el, parent: el.parentElement,
+        x: 0, y: 0,
+        vx: speed * dir,
+        vy: speed * (i === 2 ? -0.9 : 0.8),
+        w: 0, h: 0, pw: 0, ph: 0, avoid: [], placed: false
+      };
+    });
+
+    this._measureMarks = () => {
+      this._marks.forEach(m => {
+        const pr = m.parent.getBoundingClientRect();
+        m.pw = m.parent.clientWidth;
+        m.ph = m.parent.clientHeight;
+        m.w = m.el.offsetWidth || 120;
+        m.h = m.el.offsetHeight || 120;
+        m.avoid = Array.from(m.parent.querySelectorAll('[data-avoid]')).map(a => {
+          const r = a.getBoundingClientRect();
+          return { x: r.left - pr.left, y: r.top - pr.top, w: r.width, h: r.height };
+        });
+        if (!m.placed) {
+          const anchor = m.el.getAttribute('data-anchor') || 'tr';
+          if (anchor === 'bc') { m.x = (m.pw - m.w) / 2; m.y = m.ph - m.h - 56; }
+          else if (anchor === 'tl') { m.x = 40; m.y = 64; }
+          else { m.x = m.pw - m.w - 40; m.y = 64; }
+          m.placed = true;
+        }
+      });
+    };
+    this._measureMarks();
+    this._marks.forEach(m => { m.el.style.transform = 'translate(' + m.x + 'px,' + m.y + 'px)'; });
+    if (reduce) return; // place statically, no motion
+
+    const margin = 16, gap = 12;
+    this._stepMarks = () => {
+      for (const m of this._marks) {
+        if (!m.pw) continue;
+        m.x += m.vx; m.y += m.vy;
+        if (m.x < margin) { m.x = margin; m.vx = Math.abs(m.vx); }
+        if (m.x > m.pw - m.w - margin) { m.x = m.pw - m.w - margin; m.vx = -Math.abs(m.vx); }
+        if (m.y < margin) { m.y = margin; m.vy = Math.abs(m.vy); }
+        if (m.y > m.ph - m.h - margin) { m.y = m.ph - m.h - margin; m.vy = -Math.abs(m.vy); }
+        for (const r of m.avoid) {
+          if (m.x < r.x + r.w + gap && m.x + m.w + gap > r.x && m.y < r.y + r.h + gap && m.y + m.h + gap > r.y) {
+            const dL = (m.x + m.w) - (r.x - gap);
+            const dR = (r.x + r.w + gap) - m.x;
+            const dT = (m.y + m.h) - (r.y - gap);
+            const dB = (r.y + r.h + gap) - m.y;
+            const mn = Math.min(dL, dR, dT, dB);
+            if (mn === dL) { m.x = r.x - gap - m.w; m.vx = -Math.abs(m.vx); }
+            else if (mn === dR) { m.x = r.x + r.w + gap; m.vx = Math.abs(m.vx); }
+            else if (mn === dT) { m.y = r.y - gap - m.h; m.vy = -Math.abs(m.vy); }
+            else { m.y = r.y + r.h + gap; m.vy = Math.abs(m.vy); }
+          }
+        }
+        m.el.style.transform = 'translate(' + m.x.toFixed(2) + 'px,' + m.y.toFixed(2) + 'px)';
+      }
+      this._marksRaf = requestAnimationFrame(this._stepMarks);
+    };
+    this._marksRaf = requestAnimationFrame(this._stepMarks);
+
+    this._onMarksResize = () => { this._marks.forEach(m => m.placed = m.placed); this._measureMarks(); };
+    window.addEventListener('resize', this._onMarksResize);
+    setTimeout(this._measureMarks, 500);
+    setTimeout(this._measureMarks, 1800);
+  }
+
+  componentWillUnmount() {
+    if (this._revealSafety) clearTimeout(this._revealSafety);
+    if (this._marksRaf) cancelAnimationFrame(this._marksRaf);
+    if (this._onMarksResize) window.removeEventListener('resize', this._onMarksResize);
+  }
+
+  goContact = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 0;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  sayLess = () => this.setState(s => ({ idx: Math.max(0, s.idx - 1) }));
+  sayMore = () => this.setState(s => ({ idx: Math.min(this.pitches.length - 1, s.idx + 1) }));
+  setIdx = (i) => this.setState({ idx: i });
+
+  onName = (e) => this.setState({ fName: e.target.value, error: '' });
+  onBiz = (e) => this.setState({ fBiz: e.target.value });
+  onEmail = (e) => this.setState({ fEmail: e.target.value, error: '' });
+  onMsg = (e) => this.setState({ fMsg: e.target.value, error: '' });
+
+  submit = async (e) => {
+    e.preventDefault();
+    if (this.state.sending) return;
+    const { fName, fBiz, fEmail, fMsg } = this.state;
+    if (!fName.trim()) return this.setState({ error: 'A name, to start.' });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fEmail.trim())) return this.setState({ error: 'A real email, so we can reply.' });
+    if (!fMsg.trim()) return this.setState({ error: 'One line on what a customer should feel.' });
+
+    const subject = 'Coffee + Chat — ' + fName.trim() + (fBiz.trim() ? ' (' + fBiz.trim() + ')' : '');
+    const body =
+      'Name: ' + fName.trim() + '\n' +
+      'Business: ' + fBiz.trim() + '\n' +
+      'Email: ' + fEmail.trim() + '\n\n' +
+      'What a customer should feel on contact:\n' + fMsg.trim();
+    window.location.href = 'mailto:demetri@aubreynorth.com?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    this.setState({ sent: true, sentName: fName.trim().split(/\s+/)[0] });
+  };
+
+  renderVals() {
+    const p = this.pitches[this.state.idx];
+    const accent = '#C0593B';
+
+    const pitchEl = React.createElement('p', {
+      key: this.state.idx,
+      style: {
+        fontFamily: "'Recoleta', Georgia, serif", fontWeight: 300,
+        fontSize: p.size, lineHeight: p.lh, letterSpacing: '-0.01em',
+        margin: 0, color: '#f6f3ec', textWrap: 'pretty',
+        animation: 'anFade .55s cubic-bezier(.2,.7,.2,1) both'
+      }
+    }, p.text);
+
+    const dotsEl = this.pitches.map((pp, i) => React.createElement('button', {
+      key: i,
+      onClick: () => this.setIdx(i),
+      title: pp.label,
+      style: {
+        width: i === this.state.idx ? '22px' : '8px', height: '8px',
+        borderRadius: '999px', border: 'none', cursor: 'pointer', padding: 0,
+        background: i === this.state.idx ? accent : 'rgba(241,236,226,0.30)',
+        transition: 'all .3s cubic-bezier(.2,.7,.2,1)'
+      }
+    }));
+
+    const baseBtn = {
+      flex: 1, fontFamily: "'Scenario', serif", fontWeight: 700, fontSize: '12px',
+      letterSpacing: '0.12em', textTransform: 'uppercase', padding: '20px 22px',
+      border: 'none', cursor: 'pointer', transition: 'background .25s ease, color .25s ease',
+      background: 'transparent'
+    };
+    const atMin = this.state.idx === 0;
+    const atMax = this.state.idx === this.pitches.length - 1;
+
+    return {
+      lengthLabel: p.label,
+      wordCount: this.countWords(p.text),
+      pitchEl, dotsEl,
+      sayLess: this.sayLess, sayMore: this.sayMore,
+      atMin, atMax,
+      lessBtnStyle: { ...baseBtn, color: atMin ? '#5a554c' : '#f1ece2', cursor: atMin ? 'default' : 'pointer' },
+      moreBtnStyle: { ...baseBtn, color: atMax ? '#5a554c' : '#f1ece2', cursor: atMax ? 'default' : 'pointer' },
+      goContact: this.goContact,
+      tiers: [
+        { no: '01', name: 'Coffee + Chat', desc: 'A relaxed, focused conversation about how you see the business and where the friction is.', price: 'Complimentary' },
+        { no: '02', name: 'The One Recommendation', desc: 'A single, focused fix on the most critical issue, delivered as an Aubrey North Note.', price: '£500' },
+        { no: '03', name: 'Weekly Intensive', desc: 'Focused weekly sprints to identify and fix the core narrative issues. Most run two to three weeks.', price: '£2,500 / week' },
+        { no: '04', name: 'Ongoing Advisory', desc: 'By invitation, billed monthly. For businesses that want a steady hand on the narrative over time.', price: '£1–2k / week' }
+      ],
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      sentName: this.state.sentName,
+      fName: this.state.fName, fBiz: this.state.fBiz, fEmail: this.state.fEmail, fMsg: this.state.fMsg,
+      onName: this.onName, onBiz: this.onBiz, onEmail: this.onEmail, onMsg: this.onMsg,
+      submit: this.submit,
+      sending: this.state.sending,
+      submitLabel: this.state.sending ? 'Sending…' : 'Request a coffee',
+      hasError: !!this.state.error, errorMsg: this.state.error
+    };
+  }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'Glamour Absolute Extended';font-weight:400;font-display:swap;src:url(fonts/GlamourAbsoluteExtended-400.woff2) format('woff2');}
+@font-face{font-family:'Glamour Absolute';font-weight:400;font-display:swap;src:url(fonts/GlamourAbsolute-400.woff2) format('woff2');}
+@font-face{font-family:'Recoleta';font-weight:300;font-display:swap;src:url(fonts/Recoleta-300.woff2) format('woff2');}
+@font-face{font-family:'Graphik';font-weight:400;font-display:swap;src:url(fonts/Graphik-400.woff2) format('woff2');}
+@font-face{font-family:'Graphik';font-weight:600;font-display:swap;src:url(fonts/Graphik-600.woff2) format('woff2');}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#191220;}
+a{color:#C8A24C;} a:hover{color:#E3C57E;}
+</style>
+</helmet>
+<div style="min-height:100%;background:radial-gradient(150% 90% at 50% -6%,#33273f 0%,#241B30 44%,#191220 100%);font-family:'Graphik','Inter',sans-serif;color:#E4DDD0;padding:60px 44px 110px;">
+  <div style="max-width:960px;margin:0 auto;">
+
+    <div style="text-align:center;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#C9A56A;">Cunning Corp · Brand Ladder · draft copy</div>
+    </div>
+
+    <!-- HOUSE — top rung -->
+    <div style="text-align:center;margin-top:14px;padding:34px 30px 40px;">
+      <div style="min-height:300px;display:flex;align-items:center;justify-content:center;">{{ heroMark }}</div>
+      <div style="font-family:'Glamour Absolute Extended','Glamour Absolute',serif;font-size:42px;color:#FAF6EE;text-shadow:0 2px 40px rgba(240,166,44,.24);">Cunning Corp</div>
+      <div style="font-family:'Graphik';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8E8BD8;margin-top:14px;">The House · plum &amp; gold · full wit</div>
+      <h1 style="font-family:'Glamour Absolute',serif;font-weight:400;font-size:34px;color:#FAF6EE;margin-top:20px;line-height:1.1;">Building worlds from bright ideas.</h1>
+      <p style="font-family:'Recoleta',serif;font-weight:300;font-size:20px;color:#E3C57E;margin-top:12px;">A house of stories, each one lit by an idea.</p>
+      <p style="font-size:14.5px;color:#B7AEC2;max-width:600px;margin:16px auto 0;line-height:1.6;">A family of story companies — we sharpen the stories businesses tell, put new ones on page and screen, and dream up the ideas that spark them.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;margin:8px 0 22px;">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(200,162,76,.4),rgba(200,162,76,.05));"></div>
+      <span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#8E8BD8;">The divisions · loudest to quietest</span>
+      <div style="flex:1;height:1px;background:linear-gradient(270deg,rgba(200,162,76,.4),rgba(200,162,76,.05));"></div>
+    </div>
+
+    <!-- ROOMS -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- Cunning Ideas -->
+      <div style="display:flex;gap:26px;align-items:stretch;background:linear-gradient(180deg,#FCFAF4,#F1EADB);border-radius:16px;padding:26px 30px;box-shadow:0 20px 44px -24px rgba(6,3,12,.8);">
+        <div style="width:96px;flex:none;display:flex;align-items:center;justify-content:center;">{{ m.ideas }}</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+            <div style="font-family:'Glamour Absolute Extended','Glamour Absolute',serif;font-size:24px;color:#241B30;">Cunning Ideas</div>
+            <span style="font-family:'Graphik';font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#B4670F;border-radius:20px;padding:4px 11px;">Loudest</span>
+            <span style="font-size:11.5px;color:#8a8378;">Moonshot engine · gold-filled bulb</span>
+          </div>
+          <div style="width:36px;height:2px;background:#C8A24C;margin:12px 0 14px;"></div>
+          <h3 style="font-family:'Glamour Absolute',serif;font-weight:400;font-size:23px;color:#241B30;line-height:1.15;">Big ideas in, whole worlds out.</h3>
+          <p style="font-family:'Recoleta',serif;font-weight:300;font-size:16px;color:#7a5a2e;margin-top:6px;">The moonshot lab, where worlds switch on.</p>
+        </div>
+      </div>
+
+      <!-- Cunning Publications -->
+      <div style="display:flex;gap:26px;align-items:stretch;background:linear-gradient(180deg,#FCFAF4,#F1EADB);border-radius:16px;padding:26px 30px;box-shadow:0 20px 44px -24px rgba(6,3,12,.8);">
+        <div style="width:96px;flex:none;display:flex;align-items:center;justify-content:center;">{{ m.pub }}</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+            <div style="font-family:'Glamour Absolute Extended','Glamour Absolute',serif;font-size:24px;color:#241B30;">Cunning Publications</div>
+            <span style="font-family:'Graphik';font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#2C3E5D;border-radius:20px;padding:4px 11px;">Measured</span>
+            <span style="font-size:11.5px;color:#8a8378;">Editorial arm · slate monotone</span>
+          </div>
+          <div style="width:36px;height:2px;background:#2C3E5D;margin:12px 0 14px;"></div>
+          <h3 style="font-family:'Glamour Absolute',serif;font-weight:400;font-size:23px;color:#241B30;line-height:1.15;">Stories, set in ink.</h3>
+          <p style="font-family:'Recoleta',serif;font-weight:300;font-size:16px;color:#41506b;margin-top:6px;">Bright ideas, on the page.</p>
+          <p style="font-size:13.5px;color:#5c5647;margin-top:10px;line-height:1.55;">The editorial arm — putting new stories on the page, considered and unhurried.</p>
+        </div>
+      </div>
+
+      <!-- Cunning Productions -->
+      <div style="display:flex;gap:26px;align-items:stretch;background:linear-gradient(180deg,#FCFAF4,#F1EADB);border-radius:16px;padding:26px 30px;box-shadow:0 20px 44px -24px rgba(6,3,12,.8);">
+        <div style="width:96px;flex:none;display:flex;align-items:center;justify-content:center;">{{ m.prod }}</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+            <div style="font-family:'Glamour Absolute Extended','Glamour Absolute',serif;font-size:24px;color:#241B30;">Cunning Productions</div>
+            <span style="font-family:'Graphik';font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#1F5F5B;border-radius:20px;padding:4px 11px;">Measured</span>
+            <span style="font-size:11.5px;color:#8a8378;">Story-led screen · teal monotone</span>
+          </div>
+          <div style="width:36px;height:2px;background:#1F5F5B;margin:12px 0 14px;"></div>
+          <h3 style="font-family:'Glamour Absolute',serif;font-weight:400;font-size:23px;color:#241B30;line-height:1.15;">Narrative, on screen.</h3>
+          <p style="font-family:'Recoleta',serif;font-weight:300;font-size:16px;color:#2f5f5b;margin-top:6px;">Bright ideas, in motion.</p>
+          <p style="font-size:13.5px;color:#5c5647;margin-top:10px;line-height:1.55;">Story-led channels and screen — narrative craft leads, the machinery stays quiet.</p>
+        </div>
+      </div>
+
+      <!-- Aubrey North -->
+      <div style="display:flex;gap:26px;align-items:stretch;background:linear-gradient(180deg,#FBF6EF,#F0E7DA);border-radius:16px;padding:26px 30px;box-shadow:0 20px 44px -24px rgba(6,3,12,.8);">
+        <div style="width:96px;flex:none;display:flex;align-items:center;justify-content:center;">{{ m.aubrey }}</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;">
+            <div style="font-family:'Glamour Absolute Extended','Glamour Absolute',serif;font-size:24px;color:#3a2018;">Aubrey North</div>
+            <span style="font-family:'Graphik';font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#C0593B;border-radius:20px;padding:4px 11px;">Quietest</span>
+            <span style="font-size:11.5px;color:#9a7d5f;">Advisory · terracotta · own kit</span>
+          </div>
+          <div style="width:36px;height:2px;background:#C0593B;margin:12px 0 14px;"></div>
+          <h3 style="font-family:'Glamour Absolute',serif;font-weight:400;font-size:23px;color:#3a2018;line-height:1.15;">Say less. Mean more.</h3>
+          <p style="font-family:'Recoleta',serif;font-weight:300;font-size:16px;color:#a04b30;margin-top:6px;">A Cunning Corp company.</p>
+          <p style="font-size:13.5px;color:#6b5443;margin-top:10px;line-height:1.55;">Narrative advisory — spare, certain, composed. Keeps its own Scenario/Futura kit; Recoleta is the shared thread home.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px;color:#8E8BD8;margin-top:32px;line-height:1.6;">Draft copy for review · house line locked from the brief; division heroes &amp; taglines drafted in-voice (dry wit, one turn per line). Approve or edit inline, then I'll seal the winners into <b style="color:#C9A56A;">copylock.json</b>. Marks from <a href="Logo.dc.html">the locked logo</a>.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1040,&quot;height&quot;:1700},&quot;showGlow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mark&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const h = React.createElement;
+    const showGlow = this.props.showGlow ?? true;
+    let uid = 0;
+
+    const helixStrand = (cx, top, bottom, amp, turns, phase0, N, expo) => {
+      const pts = [];
+      for (let i = 0; i <= N; i++) {
+        const t = i / N;
+        const a = amp * Math.pow(Math.sin(Math.PI * t), expo);
+        const ph = t * turns * Math.PI * 2 + phase0;
+        pts.push({ x: cx + a * Math.sin(ph), y: top + t * (bottom - top), depth: Math.cos(ph) });
+      }
+      return pts;
+    };
+    const toPath = (p) => p.map((q, i) => `${i ? 'L' : 'M'} ${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join(' ');
+    const frontRuns = (pts) => {
+      const runs = []; let cur = null;
+      pts.forEach((p) => { if (p.depth > 0.02) (cur || (cur = [])).push(p); else if (cur) { if (cur.length > 1) runs.push(cur); cur = null; } });
+      if (cur && cur.length > 1) runs.push(cur);
+      return runs;
+    };
+
+    const mark = (px, mode) => {
+      const id = `m${uid++}`;
+      const cx = 110, N = px < 34 ? 60 : 120;
+      const top = 72, bottom = 240, amp = 66, turns = 4, expo = 0.42;
+      const sA = helixStrand(cx, top, bottom, amp, turns, 0, N, expo);
+      const sB = helixStrand(cx, top, bottom, amp, turns, Math.PI, N, expo);
+      const A = { bright:'#FFF3CE', amber:'#F0A62C', deep:'#9A5A10' };
+      const kids = [];
+      kids.push(h('defs', { key:'d' }, [
+        h('linearGradient',{key:'b',id:id+'base',x1:'0',y1:'0',x2:'0',y2:'1'},[
+          h('stop',{key:0,offset:'0%',stopColor:'#EBCE7E'}),
+          h('stop',{key:1,offset:'100%',stopColor:'#856428'})
+        ]),
+        h('filter',{key:'f',id:id+'glow',x:'-80%',y:'-80%',width:'260%',height:'260%'},[h('feGaussianBlur',{key:0,stdDeviation:px<34?1.5:4})]),
+        h('radialGradient',{key:'gg',id:id+'aura',cx:'50%',cy:'50%',r:'50%'},[
+          h('stop',{key:0,offset:'0%',stopColor:'#FFE8AE',stopOpacity:.9}),
+          h('stop',{key:1,offset:'22%',stopColor:'#F6B23E',stopOpacity:.5}),
+          h('stop',{key:2,offset:'46%',stopColor:'#E0902A',stopOpacity:.24}),
+          h('stop',{key:3,offset:'70%',stopColor:'#E0902A',stopOpacity:.08}),
+          h('stop',{key:4,offset:'100%',stopColor:'#E0902A',stopOpacity:0})
+        ]),
+        h('radialGradient',{key:'hs',id:id+'hot',cx:'50%',cy:'50%',r:'50%'},[
+          h('stop',{key:0,offset:'0%',stopColor:'#FFFFFF',stopOpacity:.85}),
+          h('stop',{key:1,offset:'40%',stopColor:'#FFE9B4',stopOpacity:.35}),
+          h('stop',{key:2,offset:'100%',stopColor:'#FFE9B4',stopOpacity:0})
+        ])
+      ]));
+
+      if (mode.flat) {
+        const col = mode.flat;
+        const sw = px < 30 ? 4.5 : 4;
+        [sA, sB].forEach((s, si) => {
+          kids.push(h('path',{key:'bk'+si,d:toPath(s),fill:'none',stroke:col,strokeWidth:sw-1.5,strokeLinecap:'round',strokeLinejoin:'round',opacity:.4}));
+          frontRuns(s).forEach((r,ri)=>kids.push(h('path',{key:'fr'+si+'-'+ri,d:toPath(r),fill:'none',stroke:col,strokeWidth:sw,strokeLinecap:'round',strokeLinejoin:'round'})));
+        });
+        kids.push(h('line',{key:'st',x1:cx,y1:top-2,x2:cx,y2:bottom+2,stroke:col,strokeWidth:sw-2.5,opacity:.5}));
+        kids.push(h('path',{key:'nk',d:'M96 258 L124 258 L121 278 L99 278 Z',fill:'none',stroke:col,strokeWidth:sw}));
+        [286,296,306].forEach((y,i)=>kids.push(h('line',{key:'t'+i,x1:99,y1:y,x2:121,y2:y,stroke:col,strokeWidth:sw-1.5,strokeLinecap:'round'})));
+        return h('svg',{viewBox:'0 0 220 330',width:px,height:Math.round(px*1.5),style:{display:'inline-block',verticalAlign:'bottom',overflow:'visible'}},kids);
+      }
+
+      const mid = (top + bottom) / 2;
+      if (showGlow) {
+        kids.push(h('ellipse',{key:'atmo',cx,cy:mid,rx:108,ry:162,fill:`url(#${id}aura)`,opacity:.32}));
+        kids.push(h('ellipse',{key:'spillu',cx,cy:top+10,rx:40,ry:64,fill:`url(#${id}aura)`,opacity:.35}));
+        kids.push(h('ellipse',{key:'spilld',cx,cy:bottom-4,rx:44,ry:70,fill:`url(#${id}aura)`,opacity:.4}));
+        kids.push(h('ellipse',{key:'aura',cx,cy:mid,rx:104,ry:132,fill:`url(#${id}aura)`,opacity:.5}));
+        kids.push(h('ellipse',{key:'body',cx,cy:mid,rx:amp+16,ry:(bottom-top)/2+8,fill:`url(#${id}aura)`,opacity:.9}));
+        kids.push(h('ellipse',{key:'hot',cx,cy:mid,rx:amp,ry:(bottom-top)/2-14,fill:`url(#${id}hot)`,opacity:.92}));
+        kids.push(h('ellipse',{key:'spot',cx,cy:mid,rx:26,ry:52,fill:`url(#${id}hot)`,opacity:.85,filter:`url(#${id}glow)`}));
+      }
+      kids.push(h('line',{key:'stem',x1:cx,y1:top-6,x2:cx,y2:bottom+6,stroke:'#6E4A16',strokeWidth:2.4,opacity:.55}));
+      kids.push(h('path',{key:'hook',d:`M${cx-9} ${top-2} Q${cx} ${top-12} ${cx+9} ${top-2}`,fill:'none',stroke:'#8A5E1E',strokeWidth:2.2}));
+      [sA, sB].forEach((s, si) => {
+        kids.push(h('path',{key:'gl'+si,d:toPath(s),fill:'none',stroke:A.amber,strokeWidth:9,strokeLinecap:'round',strokeLinejoin:'round',opacity:.45,filter:`url(#${id}glow)`}));
+        kids.push(h('path',{key:'bk'+si,d:toPath(s),fill:'none',stroke:A.deep,strokeWidth:3.6,strokeLinecap:'round',strokeLinejoin:'round',opacity:.75}));
+      });
+      [sA, sB].forEach((s, si) => {
+        frontRuns(s).forEach((r,ri)=>{
+          const d = toPath(r);
+          kids.push(h('path',{key:'fa'+si+'-'+ri,d,fill:'none',stroke:A.amber,strokeWidth:5.5,strokeLinecap:'round',strokeLinejoin:'round'}));
+          kids.push(h('path',{key:'fc'+si+'-'+ri,d,fill:'none',stroke:A.bright,strokeWidth:2.4,strokeLinecap:'round',strokeLinejoin:'round',opacity:.95}));
+          kids.push(h('path',{key:'fw'+si+'-'+ri,d,fill:'none',stroke:'#FFFFFF',strokeWidth:0.9,strokeLinecap:'round',strokeLinejoin:'round',opacity:.55}));
+        });
+      });
+      kids.push(h('path',{key:'neck',d:'M93 254 Q110 262 127 254 L123 276 L97 276 Z',fill:`url(#${id}base)`}));
+      kids.push(h('rect',{key:'band',x:96,y:276,width:28,height:30,rx:3,fill:`url(#${id}base)`}));
+      [281,289,297,305].forEach((y,i)=>{
+        kids.push(h('path',{key:'th'+i,d:`M97 ${y} Q110 ${y+5} 123 ${y}`,fill:'none',stroke:'#F3DB96',strokeWidth:2.1,opacity:.9}));
+        kids.push(h('path',{key:'ts'+i,d:`M97 ${y+3} Q110 ${y+8} 123 ${y+3}`,fill:'none',stroke:'#6E5017',strokeWidth:1.9,opacity:.7}));
+      });
+      kids.push(h('rect',{key:'l',x:96,y:276,width:7,height:30,rx:3,fill:'#FBEFC4',opacity:.28}));
+      kids.push(h('rect',{key:'r',x:117,y:276,width:7,height:30,rx:3,fill:'#3A2A0C',opacity:.32}));
+      kids.push(h('path',{key:'ins',d:'M100 306 L120 306 L116 316 L104 316 Z',fill:'#2A2116'}));
+      kids.push(h('ellipse',{key:'tip',cx:110,cy:318,rx:8,ry:3.6,fill:'#5C441C'}));
+      return h('svg',{viewBox:'0 0 220 330',width:px,height:Math.round(px*1.5),style:{display:'inline-block',verticalAlign:'bottom',overflow:'visible'}},kids);
+    };
+
+    return {
+      heroMark: mark(190,'vivid'),
+      m: {
+        ideas: mark(92,'vivid'),
+        pub: mark(84,{flat:'#2C3E5D'}),
+        prod: mark(84,{flat:'#1F5F5B'}),
+        aubrey: mark(84,{flat:'#C0593B'})
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

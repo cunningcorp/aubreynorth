@@ -1,0 +1,89 @@
+---
+// Decorative orbiting-dot mark from the design source. Purely ornamental —
+// hidden on mobile and for reduced-motion, aria-hidden always.
+// Positioning comes in as an inline `style` because scoped parent classes do
+// not reach a child component's root element in Astro.
+interface Props {
+  style?: string; // position/size, e.g. "top:108px;right:46px;width:146px;height:146px"
+  orbit?: string; // orbit animation duration
+  core?: string; // centre dot diameter
+  satellite?: string; // orbiting dot diameter
+}
+const {
+  style = '',
+  orbit = '9s',
+  core = '16px',
+  satellite = '9px',
+} = Astro.props;
+---
+
+<div class="an-orbit" data-deco aria-hidden="true" style={style}>
+  <div class="an-orbit__ring an-orbit__ring--pulse"></div>
+  <div class="an-orbit__ring an-orbit__ring--pulse an-orbit__ring--delay"></div>
+  <div class="an-orbit__ring an-orbit__ring--static"></div>
+  <div class="an-orbit__spin" style={`animation-duration:${orbit}`}>
+    <div
+      class="an-orbit__satellite"
+      style={`width:${satellite};height:${satellite};margin-left:calc(${satellite} / -2)`}
+    >
+    </div>
+  </div>
+  <div class="an-orbit__center">
+    <div class="an-orbit__core" style={`width:${core};height:${core}`}></div>
+  </div>
+</div>
+
+<style>
+  .an-orbit {
+    position: absolute;
+    animation: anDrift 7s ease-in-out infinite;
+  }
+  .an-orbit__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(192, 89, 59, 0.45);
+  }
+  .an-orbit__ring--pulse {
+    animation: anPulseRing 3.6s ease-out infinite;
+  }
+  .an-orbit__ring--delay {
+    animation-delay: 1.8s;
+  }
+  .an-orbit__ring--static {
+    border-color: rgba(192, 89, 59, 0.3);
+    animation: none;
+  }
+  .an-orbit__spin {
+    position: absolute;
+    inset: 0;
+    animation: anOrbit linear infinite;
+  }
+  .an-orbit__satellite {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    border-radius: 50%;
+    background: var(--rust);
+  }
+  .an-orbit__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .an-orbit__core {
+    border-radius: 50%;
+    background: var(--rust);
+    animation: anBreathe 3.6s ease-in-out infinite, anGlow 3.6s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .an-orbit,
+    .an-orbit__ring,
+    .an-orbit__spin,
+    .an-orbit__core {
+      animation: none !important;
+    }
+  }
+</style>

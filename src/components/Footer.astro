@@ -1,0 +1,53 @@
+---
+// Footer, ported verbatim from the design source. Legal/trading copy is a
+// brand fact — do not alter (see CLAUDE.md, copy governance).
+---
+
+<footer class="an-footer">
+  <div class="wrap an-footer__inner">
+    <p class="an-footer__legal">
+      Aubrey North is a trading name of Cunning Corp Ltd, registered in England
+      and Wales, and of Maurice James LLC-FZ, Dubai, UAE. Strategic and
+      commercial advisory only — not legal or financial advice.
+    </p>
+    <p class="an-footer__tag">Clarity · Story · Understanding</p>
+  </div>
+</footer>
+
+<style>
+  .an-footer {
+    background: var(--dark);
+    color: #6f6a60;
+    border-top: 1px solid rgba(241, 236, 226, 0.1);
+  }
+  .an-footer__inner {
+    padding: 34px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: var(--measure);
+  }
+  .an-footer__legal {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 640px;
+  }
+  .an-footer__tag {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--muted);
+  }
+  @media (max-width: 640px) {
+    .an-footer__inner {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+  }
+</style>
