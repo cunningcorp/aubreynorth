@@ -3,7 +3,7 @@ title: "The Narrative Read"
 description: "Story is what happened; narrative is the shape you give it. The difference between story and narrative — and why your business keeps sending the timeline."
 lane: screen
 pubDate: 2026-08-17
-draft: true
+draft: false
 tags: ["screen", "narrative", "the-read", "story-craft"]
 ---
 
