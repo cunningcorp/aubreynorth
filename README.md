@@ -21,7 +21,7 @@ npm run preview  # serve the built dist/ locally
 
 Adding a Read is the whole publishing process: drop a Markdown file into
 [`src/content/reads/`](src/content/reads/) and push to `main`. Match the frontmatter of
-[`the-dropbox-read.md`](src/content/reads/the-dropbox-read.md):
+[`the-narrative-read.md`](src/content/reads/the-narrative-read.md):
 
 ```yaml
 title: string          # post title

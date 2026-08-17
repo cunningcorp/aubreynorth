@@ -2,8 +2,8 @@
 
 Everything needed for the migration is already in this repo: the build brief
 (`CLAUDE.md`), the clean design source and fonts (`_handoff/design-reference/`), the
-locked brand rules and copylock (`_handoff/brand/`), and one seed Read
-(`src/content/reads/the-dropbox-read.md`). The Supabase project and contact table are
+locked brand rules and copylock (`_handoff/brand/`), and the first authored Read
+(`src/content/reads/the-narrative-read.md`). The Supabase project and contact table are
 live; the keys are set as GitHub Actions secrets.
 
 ## Steps
@@ -20,7 +20,7 @@ live; the keys are set as GitHub Actions secrets.
 
 ## Before you merge — quick checks
 
-- **View Source on a built Read page** (e.g. `/reads/the-dropbox-read/`). The full article
+- **View Source on a built Read page** (e.g. `/reads/the-narrative-read/`, once published). The full article
   text must be in the HTML, not a JS shell. This is the SEO test that matters.
 - **Homepage** should look like the old site — same layout, fonts, palette, copy. Spot-check
   against `_handoff/design-reference/an-site-src.html`.
@@ -37,7 +37,7 @@ live; the keys are set as GitHub Actions secrets.
   it is the *publishable* key and RLS is insert-only. Never add the service-role key or the
   database password to this repo or its secrets.
 - Publishing a new Read after this ships = add one markdown file to `src/content/reads/`,
-  matching the frontmatter of `the-dropbox-read.md`, then push.
+  matching the frontmatter of `the-narrative-read.md`, then push.
 
 ## GitHub secrets (already set)
 

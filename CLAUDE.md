@@ -81,7 +81,7 @@ Rules, in priority order:
    idea, never list every venture); story leads, method follows; Aubrey North sits at the
    *quietest* volume in the ladder.
 3. **Reads are held to the same bar as site copy.** A new Read's `title`, `description`,
-   headings and body all obey `voice.rules`. `the-dropbox-read.md` is the reference for tone
+   headings and body all obey `voice.rules`. `the-narrative-read.md` is the reference for tone
    — match it, don't exceed it.
 4. **Never invent brand facts.** Names, taglines, positioning, division roles, accents and
    the mission line come from copylock / the handbook only. If a needed string is missing,

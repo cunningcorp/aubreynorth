@@ -2,7 +2,7 @@
 
 Cadence: **one Read per week.** Topics are **keyword-led** — each Read exists to catch a
 real search query, not to mirror the video pipeline. Voice and copy are governed by
-`_handoff/brand/copylock.json`; the Dropbox Read is the tone reference.
+`_handoff/brand/copylock.json`; the Narrative Read is the tone reference.
 
 The publish loop: Claude drafts → Demetri reviews and edits → commit → `git push`.
 Nothing publishes without Demetri's approval. That is a copylock rule, not a preference.
@@ -200,7 +200,9 @@ the other three. `TODO(copy)`.
 
 ### Business lane (company-name queries)
 
-- [x] The Dropbox Read — *published*
+- ~~The Dropbox Read~~ — *removed 2026-08-17*. Was an auto-generated migration seed to
+      prove the pipeline, never authored or gate-approved. Unpublished; not part of the
+      editorial library. (Still recoverable from git history if ever wanted.)
 - [ ] **The Tropicana Read** — target: "tropicana rebrand failure". The 2009 packaging
       redesign: $30M+ lost by discarding the story customers already understood.
 - [ ] **The Old Spice Read** — target: "old spice rebrand". A dying brand that chose one
