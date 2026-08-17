@@ -1,10 +1,10 @@
 {
   "_meta": {
     "schema": "cunning-corp/copylock",
-    "version": "1.2",
-    "locked": "2026-08-14",
+    "version": "1.3",
+    "locked": "2026-08-17",
     "status": "approved",
-    "note": "Canonical, approved copy for the Cunning Corp brand ladder. Do not edit casually — bump version on change. Human-readable mirror: Brand Ladder.dc.html.",
+    "note": "Canonical, approved copy for the Cunning Corp brand ladder. Do not edit casually — bump version on change. Human-readable mirror: Brand Ladder.dc.html. v1.3 adds aubreyNorthLexicon (approved AN content coinages).",
     "sources": ["cunning-corp-brand-brief.html (v1.9)", "cunning-corp-hero.html", "cunning-corp-design-handoff.html"]
   },
 
@@ -17,6 +17,28 @@
       "The 1/8th principle: show the one lit idea; never list every venture.",
       "Story leads, method follows.",
       "Volume is set per division: Ideas loudest, Publications & Productions measured, Aubrey North quietest."
+    ]
+  },
+
+  "aubreyNorthLexicon": {
+    "_note": "Approved Aubrey North content coinages — the named ideas allowed to appear publicly on aubreynorth.com (in Reads, headings, microcopy). Editorial/craft terms, distinct from the brand-ladder positioning below. All obey voice.rules. This is the single source of truth for these terms; do not redefine them elsewhere.",
+    "terms": [
+      {
+        "term": "The BOW mentality",
+        "gloss": "Refusing to tie a story off in a neat bow — the point where it starts to feel contrived. Aubrey North opposes it.",
+        "status": "approved"
+      },
+      {
+        "term": "The Core",
+        "gloss": "Character plus motive: the thing an audience invests in, the thing the character wants but never quite gets. No core, no reason for the idea to exist.",
+        "status": "approved"
+      },
+      {
+        "term": "The Boundary",
+        "gloss": "A defined, small world has depth. To the audience it must seem large; to the maker, only a few grand things can truly happen.",
+        "status": "approved",
+        "note": "Public name set from an internal working title (prefix dropped). Confirm 'The Boundary' as final."
+      }
     ]
   },
 
