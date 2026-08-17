@@ -110,32 +110,77 @@ answer it early, then earn the deeper point.
 
 ### Screen lane — Failures
 
+The bridge sub-stream: a named way stories lose people, then the same failure in business
+messaging. Each turn is drawn from the corpus (see `STORY-CORPUS.md`).
+
 - [ ] **The Sagging Middle Read** — target: "sagging middle story". Why stories lose their
-      audience at the midpoint — and the business version of the same failure.
-- [ ] **The Season Two Read** — target: "why do shows get worse after season one". The
-      expired premise: a story that keeps talking after its question is answered.
-- [ ] **The Show-Don't-Tell Read** — target: "show don't tell examples". The gap between
-      claiming a quality and demonstrating it, on screen and in business copy.
+      audience at the midpoint. Turn: drop the mid-season sag; the strands haven't begun to
+      fold (String Cheese). Pairs with *The Midpoint Read* in Foundations — one names the
+      failure, the other names the mechanism.
+- [ ] **The Season Two Read** — target: "why do shows get worse after season one". Turn: the
+      expired premise — a story that keeps talking after its question is answered (echoes
+      HECTARE's "no sequels").
+- [ ] **The Show-Don't-Tell Read** — target: "show don't tell examples". Turn: "bad writing
+      explains, good writing shows" (String Cheese) — the gap between claiming a quality and
+      demonstrating it, on screen and in business copy.
 
 ### Screen lane — Foundations
 
-Provisional. To be extended and reordered against Demetri's existing storytelling notes
-once those are inventoried — see *Open decisions*. Do not treat this ordering as settled.
+Rebuilt against the corpus (2026-08-17). Each row: the searched query on the surface, and
+the Aubrey North turn that resolves it — sourced in `STORY-CORPUS.md`. Ordered by priority:
+character and distinction first (highest transfer to business, and where the owned terms do
+the most work), then structure, then technique. Work top to bottom.
 
-- [ ] **The Cold Open Read** — target: "what is a cold open". Why starting inside the
-      story beats starting with the setup — on screen and in a pitch.
-- [ ] **The In Medias Res Read** — target: "in medias res meaning". Starting where the
-      interest already is.
-- [ ] **Story vs narrative** — target: "story vs narrative difference". The distinction the
-      whole advisory rests on. Highest strategic value in this sub-stream.
-- [ ] **Three-act structure** — target: "three act structure". Very high volume, very
-      contested. Only worth attempting with the diagnostic angle, never as an explainer.
-- [ ] **Story arcs** — target: "types of story arcs". The shapes stories take and what each
-      one asks of an audience.
-- [ ] **Stakes** — target: "what are stakes in a story". Why nothing lands when nothing is
-      at risk — the most transferable idea in the corpus.
-- [ ] **Chekhov's gun** — target: "chekhov's gun meaning". Everything present must earn its
-      place. Naturally adjacent to 1/8th without stating it.
+Tags below: **[public term]** = resolves into a copylock `aubreyNorthLexicon` coinage;
+**[cite, don't quote]** = the turn draws on third-party craft (Yorke's *Into the Woods*,
+McKee, Vogler, Pixar) — explain in Aubrey North's own words, never reproduce the text or
+figures.
+
+*Priority tier — distinction and character:*
+
+- [ ] **The Narrative Read** — target: "story vs narrative difference". The distinction the
+      whole advisory rests on. Turn: structure serves character, never the reverse — story
+      is what happens, narrative is the shape you give it (Panda Construct). Highest
+      strategic value in the sub-stream.
+- [ ] **The Core Read** — target: "what makes a character compelling". Turn: **the Core** —
+      character plus motive, the thing they want but never quite get. **[public term]**
+- [ ] **The Flaw Read** — target: "what is a character flaw". Turn: the façade is the mask
+      over the wound; a flaw at the start produces its opposite by the end. **[cite, don't
+      quote]**
+- [ ] **The Stakes Read** — target: "what are stakes in a story". Turn: nothing lands when
+      nothing is at risk — the most transferable idea in the corpus.
+
+*Structure tier — high volume, contested, diagnostic angle only:*
+
+- [ ] **The Structure Read** — target: "five act structure" (and "three act structure" as a
+      contested head term). Turn: the Circular reading — act one mirrors act five, "as it
+      ends it starts" (Panda Construct). Diagnostic, never an explainer. **[cite, don't
+      quote]**
+- [ ] **The Midpoint Read** — target: "story midpoint". Turn: the breakthrough — key
+      knowledge at the centre, where the strands begin to fold (Panda Construct / String
+      Cheese). Pairs with *The Sagging Middle Read*. **[cite, don't quote]**
+- [ ] **The Hero's Journey Read** — target: "hero's journey / monomyth". Turn: the dark
+      inversion — the same shape run in reverse, good turned to bad. **[cite, don't quote]**
+- [ ] **The Same Shape Read** — target: "story structure models compared". Turn: every model
+      — Freytag, Campbell, Field, Vogler, Snyder — is grasping at one underlying shape. A
+      distinctive foundations piece; describe the comparison, do not reproduce it. **[cite,
+      don't quote]**
+
+*Technique tier:*
+
+- [ ] **The Cold Open Read** — target: "what is a cold open". Turn: scenes open on conflict
+      and end on an active question (String Cheese) — start inside the story, not the setup.
+- [ ] **The In Medias Res Read** — target: "in medias res meaning". Turn: start where the
+      interest already is (pairs with *The Cold Open Read*).
+- [ ] **The Logline Read** — target: "what is a logline". Turn: **the Dumbline** — plot plus
+      the character's role in one loose line (New Egg Files). Bridges naturally to the Type
+      lane's "explain what your business does". **[public term — candidate]**
+- [ ] **The Ending Read** — target: "how to end a story". Turn: **the BOW mentality** —
+      refuse the neat bow, the point where a story starts to feel contrived. **[public term]**
+- [ ] **The Story Arc Read** — target: "types of story arcs". Turn: the shapes stories take
+      and what each asks of an audience.
+- [ ] **The Chekhov's Gun Read** — target: "chekhov's gun meaning". Turn: everything present
+      must earn its place — adjacent to 1/8th without naming it.
 
 **On competing for foundations terms:** the incumbents (StudioBinder, MasterClass, Reedsy
 and similar) rank by being complete. AN cannot win on completeness and should not try — a
@@ -143,6 +188,10 @@ comprehensive explainer would break the library rule anyway. The differentiator 
 diagnostic turn: not "here is what a three-act structure is" but "here is what goes wrong
 when a story has one and still fails." Expect the realistic wins to be long-tail and
 question-shaped rather than the head terms themselves.
+
+**Note on "the Dumbline":** flagged as a public-term candidate but not yet in copylock. If
+it earns public use, add it to `aubreyNorthLexicon` (version bump) before it ships — same as
+the other three. `TODO(copy)`.
 
 ### Screen lane — Cases
 
@@ -266,16 +315,22 @@ precision every time. Flag it in review rather than waiting for it to be caught.
 
 ## Open decisions
 
-- **Storytelling corpus not yet inventoried.** Demetri holds existing notes and story
-  examples; the foundations backlog above is provisional until those are read and mapped to
-  queries. The reference folder connected on 2026-08-17
-  (`Branding/refereences`) contains Cunning Corp brand material and the HECTARE universe
-  documents, not the storytelling corpus.
+- **Storytelling corpus inventoried** (2026-08-17). Demetri's notes and scripts are indexed
+  in `STORY-CORPUS.md` (in the `story` folder, not the repo), and the Foundations backlog
+  above is rebuilt from it — each topic mapped to an owned turn. The approved public
+  coinages live in `copylock.json → aubreyNorthLexicon` (v1.3).
+- **Reproduction discipline.** Much of the corpus draws on third-party craft (Yorke's *Into
+  the Woods*, McKee, Vogler, Pixar) and confidential/first-party scripts. Reads explain those
+  concepts in Aubrey North's own words and cite the source; they never reproduce text,
+  diagrams, or ITV material. See `STORY-CORPUS.md` for the per-file rules.
+- **"The Dumbline"** is a public-term candidate (*The Logline Read*); confirm and add to
+  `aubreyNorthLexicon` before it ships — `TODO(copy)`.
 - **Whether Screen's broadened remit needs stated copy on `/reads/screen/`.** The lane pages
   currently carry labels only. If a descriptor is wanted, it is locked copy and Demetri
   writes it — `TODO(copy)`.
 - **Examples library.** A structured, growing collection of story examples may deserve its
-  own content type rather than living inside Reads. Deferred until the corpus is inventoried.
+  own content type rather than living inside Reads. Deferred, but the first-party scripts
+  (YesterYear, *88*) make it more viable than before.
 
 ---
 
