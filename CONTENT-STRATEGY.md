@@ -142,8 +142,9 @@ figures.
       difference". The distinction the whole advisory rests on. Turn: structure serves
       character, never the reverse — story is what happens, narrative is the shape you give
       it (Panda Construct). First authored Read; the tone reference.
-- [ ] **The Core Read** — target: "what makes a character compelling". Turn: **the Core** —
-      character plus motive, the thing they want but never quite get. **[public term]**
+- [x] **The Core Read** — *published 2026-08-17*. Target: "what makes a character
+      compelling". Turn: **the Core** — character plus motive, the thing they want but never
+      quite get. **[public term]**
 - [ ] **The Flaw Read** — target: "what is a character flaw". Turn: the façade is the mask
       over the wound; a flaw at the start produces its opposite by the end. **[cite, don't
       quote]**
