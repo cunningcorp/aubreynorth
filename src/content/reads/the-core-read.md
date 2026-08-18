@@ -3,7 +3,7 @@ title: "The Core Read"
 description: "What makes a character compelling isn't likability or backstory. It's the Core — character plus motive: the thing they want but never quite get."
 lane: screen
 pubDate: 2026-08-17
-draft: false
+draft: true
 tags: ["screen", "character", "the-read", "story-craft"]
 ---
 
