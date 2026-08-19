@@ -150,3 +150,7 @@ textarea::placeholder {
     padding: 0 22px;
   }
 }
+
+/* No italics site-wide (per brand decision 2026-08-17). Emphasis renders upright;
+   markdown *…* / <em> and <cite>/<i> lose the slant. */
+em, i, cite, q, address, dfn, var, blockquote { font-style: normal; }
