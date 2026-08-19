@@ -145,8 +145,9 @@ figures.
 - [x] **The Core Read** — *published 2026-08-17*. Target: "what makes a character
       compelling". Turn: **the Core** — character plus motive, the thing they want but never
       quite get. **[public term]**
-- [ ] **The Flaw Read** — target: "what is a character flaw". Turn: the façade is the mask
-      over the wound; a flaw at the start produces its opposite by the end. **[cite, don't
+- [x] **The Flaw Read** — *queued 2026-08-19 (Reads Queue, awaiting publish)*. Target: "what
+      is a character flaw". Turn: the façade is the mask over the wound; a flaw at the start
+      produces its opposite by the end. Anchored in *Iron Man* / *Toy Story*. **[cite, don't
       quote]**
 - [ ] **The Stakes Read** — target: "what are stakes in a story". Turn: nothing lands when
       nothing is at risk — the most transferable idea in the corpus.
