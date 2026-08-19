@@ -10,7 +10,13 @@
       and Wales, and of Maurice James LLC-FZ, Dubai, UAE. Strategic and
       commercial advisory only — not legal or financial advice.
     </p>
-    <p class="an-footer__tag">Clarity · Story · Understanding</p>
+    <div class="an-footer__right">
+      <nav class="an-footer__social" aria-label="Aubrey North on social">
+        <a href="https://www.linkedin.com/company/aubreynorthco/" rel="me noopener" target="_blank">LinkedIn</a>
+        <a href="https://x.com/aubreynorthco" rel="me noopener" target="_blank">X</a>
+      </nav>
+      <p class="an-footer__tag">Clarity · Story · Understanding</p>
+    </div>
   </div>
 </footer>
 
@@ -34,6 +40,29 @@
     line-height: 1.5;
     margin: 0;
     max-width: 640px;
+  }
+  .an-footer__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .an-footer__social {
+    display: flex;
+    gap: 18px;
+  }
+  .an-footer__social a {
+    font-family: var(--font-wordmark);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .an-footer__social a:hover {
+    color: var(--accent);
   }
   .an-footer__tag {
     font-family: var(--font-wordmark);
