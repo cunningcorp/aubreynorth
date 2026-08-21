@@ -5,6 +5,10 @@ interface Props {
   contactHref?: string;
 }
 const { contactHref = '/#contact' } = Astro.props;
+// Rust active state on any Reads route (/reads/, /reads/<lane>/, /reads/<slug>/).
+// Derived from the URL, never a stored flag (03-DO-NOT-HARDCODE).
+const path = Astro.url.pathname;
+const isReads = path === '/reads/' || path.startsWith('/reads/');
 ---
 
 <nav class="an-nav">
@@ -14,7 +18,13 @@ const { contactHref = '/#contact' } = Astro.props;
       <span class="an-wordmark__name">AUBREY&nbsp;NORTH</span>
       <span class="an-wordmark__co">company</span>
     </a>
-    <a href={contactHref} class="an-cta an-cta--dark">Coffee&nbsp;+&nbsp;Chat</a>
+    <div class="an-nav__actions">
+      <a
+        href="/reads/"
+        class:list={["an-cta", "an-cta--reads", { "is-active": isReads }]}
+      >Reads</a>
+      <a href={contactHref} class="an-cta an-cta--dark">Coffee&nbsp;+&nbsp;Chat</a>
+    </div>
   </div>
 </nav>
 
@@ -71,6 +81,12 @@ const { contactHref = '/#contact' } = Astro.props;
     text-decoration: none;
     transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
   }
+  .an-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;          /* the pair wraps together on narrow widths */
+  }
   .an-cta--dark {
     color: #f1ece2;
     background: var(--ink);
@@ -78,6 +94,17 @@ const { contactHref = '/#contact' } = Astro.props;
   .an-cta--dark:hover {
     background: var(--rust);
     transform: translateY(-1px);
+  }
+  /* Outlined, NOT filled — secondary to the dark Coffee + Chat CTA. */
+  .an-cta--reads {
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid rgba(27, 26, 23, 0.18);
+  }
+  .an-cta--reads:hover,
+  .an-cta--reads.is-active {
+    color: var(--rust);
+    border-color: var(--rust);
   }
   @media (max-width: 640px) {
     .an-nav__inner {
