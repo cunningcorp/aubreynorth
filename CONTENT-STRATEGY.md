@@ -346,3 +346,8 @@ Adding a `.md` file to `src/content/reads/` and pushing to `main` is the entire 
 The deploy workflow builds, the sitemap updates itself, drafts (`draft: true`) are
 excluded automatically. Use the **draft-a-read** skill to generate drafts in the locked
 voice against this backlog.
+
+- [x] **The Boundary Read** — *queued 2026-08-21 (Reads Queue, awaiting publish)*. Target:
+      "why constraints make stories better". Turn: a defined, small world has depth; sprawl
+      thins it. Anchored in *Breaking Bad* / *Star Wars*. Confirms **The Boundary** as the
+      public lexicon term.
