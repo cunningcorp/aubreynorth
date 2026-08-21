@@ -221,8 +221,9 @@ the other three. `TODO(copy)`.
 
 ### Type lane (problem queries — anonymised archetypes)
 
-- [ ] **The Everything Pitch** — target: "how to explain what your business does". The
-      founder who answers with all eight eighths.
+- [x] **The Everything Pitch** — *queued 2026-08-21 (Reads Queue, awaiting publish)*.
+      Target: "how to explain what your business does". The founder who answers with all
+      eight eighths. First Type Read — anonymised, no real brand named.
 - [ ] **The Understood Problem** — target: "customers don't understand what we do".
       Diagnosis: it's a clarity problem, not a reach problem.
 - [ ] **The Louder Budget** — target: "why isn't my marketing working". Spending more to
