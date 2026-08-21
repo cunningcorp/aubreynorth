@@ -113,7 +113,7 @@ answer it early, then earn the deeper point.
 The bridge sub-stream: a named way stories lose people, then the same failure in business
 messaging. Each turn is drawn from the corpus (see `STORY-CORPUS.md`).
 
-- [ ] **The Sagging Middle Read** — target: "sagging middle story". Why stories lose their
+- [x] **The Sagging Middle Read** — *drafted 2026-08-21 (Reads Queue draft, awaiting review)*. Target: "sagging middle story". Why stories lose their
       audience at the midpoint. Turn: drop the mid-season sag; the strands haven't begun to
       fold (String Cheese). Pairs with *The Midpoint Read* in Foundations — one names the
       failure, the other names the mechanism.
@@ -206,7 +206,7 @@ the other three. `TODO(copy)`.
 - ~~The Dropbox Read~~ — *removed 2026-08-17*. Was an auto-generated migration seed to
       prove the pipeline, never authored or gate-approved. Unpublished; not part of the
       editorial library. (Still recoverable from git history if ever wanted.)
-- [ ] **The Tropicana Read** — target: "tropicana rebrand failure". The 2009 packaging
+- [x] **The Tropicana Read** — *drafted 2026-08-21 (Reads Queue draft, awaiting review)*. Target: "tropicana rebrand failure". The 2009 packaging
       redesign: $30M+ lost by discarding the story customers already understood.
 - [ ] **The Old Spice Read** — target: "old spice rebrand". A dying brand that chose one
       absurdly specific story instead of chasing everyone.
@@ -224,7 +224,7 @@ the other three. `TODO(copy)`.
 - [x] **The Everything Pitch** — *queued 2026-08-21 (Reads Queue, awaiting publish)*.
       Target: "how to explain what your business does". The founder who answers with all
       eight eighths. First Type Read — anonymised, no real brand named.
-- [ ] **The Understood Problem** — target: "customers don't understand what we do".
+- [x] **The Understood Problem** — *drafted 2026-08-21 (Reads Queue draft, awaiting review)*. Target: "customers don't understand what we do".
       Diagnosis: it's a clarity problem, not a reach problem.
 - [ ] **The Louder Budget** — target: "why isn't my marketing working". Spending more to
       amplify a message nobody understood at normal volume.
