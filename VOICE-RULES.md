@@ -20,12 +20,15 @@ line must still paint a clear picture. When unsure, cut.
 ## Hard rules (a Read that breaks one is not publishable)
 
 1. No exclamation marks. Anywhere.
-2. No hype words. Banned list (case-insensitive, includes word-family variants):
-   revolutionary, game-changing, game changer, unleash, unlock, supercharge,
-   turbocharge, disrupt, disruptive, cutting-edge, next-level, world-class,
-   seamless, effortless, mind-blowing, jaw-dropping, best-in-class, paradigm,
-   synergy, leverage (as a verb), delve, elevate, empower. State the point
-   plainly and let it glow.
+2. No hype words. Two tiers, matched whole-word and case-insensitive:
+   - **Hard block** (a Read with one is not publishable): revolutionary,
+     game-changing, game changer, unleash, supercharge, turbocharge, disrupt,
+     disruptive, cutting-edge, next-level, world-class, effortless, mind-blowing,
+     jaw-dropping, best-in-class, paradigm, synergy.
+   - **Soft warn** (flagged in the editor, does not block publish): unlock,
+     elevate, empower, seamless, leverage (as a verb), delve. These have honest
+     uses; the flag lets Demetri keep a deliberate one.
+   State the point plainly and let it glow.
 3. Wit is a scalpel: at most one clever turn per Read.
 4. The 1/8th principle: make one idea land; never catalogue every venture or point.
 5. Story leads, method follows: open inside the story — a scene, a moment, a
@@ -71,7 +74,9 @@ satisfy them; publish is blocked until they do.
 
 - description: 140–160 characters, contains the target query, earns the click.
 - No exclamation marks in title, description, or body.
-- No hype words (banned list above) in title, description, or body.
+- No hard-block hype words (list above) in title, description, or body; soft-warn
+  words are flagged for review but do not block publish. Matched whole-word,
+  case-insensitive.
 - Exactly one H1; 2–4 H2 (`##`) headings, phrased as sense-making turns, not keywords.
 - Internal links are root-relative (`/reads/<slug>/`) — never a claude.ai or other
   external URL for an internal reference. External citations in Business Reads are
