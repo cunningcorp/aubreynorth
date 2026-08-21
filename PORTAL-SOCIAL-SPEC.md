@@ -2,7 +2,7 @@
 
 _Prepared 21 Aug 2026 for the portal design/build chat. Owner: Demetri._
 _Builds on `PORTAL-PUBLISH-SPEC.md` (queue + publish, live) and `PORTAL-EDITOR-SPEC.md`
-(editor + suggest-fixes). Strategy source: `AUBREY NORTH/Social/DISTRIBUTION-STRATEGY.md`._
+(editor + suggest-fixes). Strategy source: `DISTRIBUTION-STRATEGY.md` (repo root)._
 
 > **Read this first — what this does and does not do.** This panel **generates social copy
 > and helps Demetri post it by hand. It never posts anything itself.** There is no posting
