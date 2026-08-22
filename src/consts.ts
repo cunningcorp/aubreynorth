@@ -15,7 +15,12 @@ export const SITE = {
 // The three Read lanes. Keys match the content-collection enum.
 export const LANES = {
   screen: { label: 'Screen', slug: 'screen' },
-  type: { label: 'Type', slug: 'type' },
+  // Public label "Archetype" and public URL slug "archetype". The lane KEY stays
+  // 'type' — so the content-collection enum, every Read's `lane: type` frontmatter,
+  // the Supabase reads_queue value, and the portal are all UNCHANGED. Only the two
+  // public-facing surfaces (label + URL) differ from the internal key.
+  // Old URL /reads/type/ is redirected to /reads/archetype/ in astro.config.mjs.
+  type: { label: 'Archetype', slug: 'archetype' },
   business: { label: 'Business', slug: 'business' },
 } as const;
 

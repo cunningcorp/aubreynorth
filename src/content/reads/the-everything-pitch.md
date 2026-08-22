@@ -37,4 +37,4 @@ Better that someone leaves wanting one more detail than that you bury them in al
 
 Say less. Let the one true thing carry the rest.
 
-*More problems seen from inside a business in the [Type lane](/reads/type/).*
+More problems seen from inside a business in the [Archetype lane](/reads/archetype/).
