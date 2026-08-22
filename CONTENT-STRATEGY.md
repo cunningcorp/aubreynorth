@@ -117,7 +117,7 @@ messaging. Each turn is drawn from the corpus (see `STORY-CORPUS.md`).
       audience at the midpoint. Turn: drop the mid-season sag; the strands haven't begun to
       fold (String Cheese). Pairs with *The Midpoint Read* in Foundations — one names the
       failure, the other names the mechanism.
-- [ ] **The Season Two Read** — target: "why do shows get worse after season one". Turn: the
+- [x] **The Season Two Read** — *drafted 2026-08-22 (Reads Queue draft, awaiting review)*. Target: "why do shows get worse after season one". Turn: the
       expired premise — a story that keeps talking after its question is answered (echoes
       HECTARE's "no sequels").
 - [ ] **The Show-Don't-Tell Read** — target: "show don't tell examples". Turn: "bad writing
@@ -208,7 +208,7 @@ the other three. `TODO(copy)`.
       editorial library. (Still recoverable from git history if ever wanted.)
 - [x] **The Tropicana Read** — *drafted 2026-08-21 (Reads Queue draft, awaiting review)*. Target: "tropicana rebrand failure". The 2009 packaging
       redesign: $30M+ lost by discarding the story customers already understood.
-- [ ] **The Old Spice Read** — target: "old spice rebrand". A dying brand that chose one
+- [x] **The Old Spice Read** — *drafted 2026-08-22 (Reads Queue draft, awaiting review)*. Target: "old spice rebrand". A dying brand that chose one
       absurdly specific story instead of chasing everyone.
 - [ ] **The Liquid Death Read** — target: "liquid death marketing strategy". Water in a
       can; the product is ordinary, the story does all the work.
@@ -226,7 +226,7 @@ the other three. `TODO(copy)`.
       eight eighths. First Type Read — anonymised, no real brand named.
 - [x] **The Understood Problem** — *drafted 2026-08-21 (Reads Queue draft, awaiting review)*. Target: "customers don't understand what we do".
       Diagnosis: it's a clarity problem, not a reach problem.
-- [ ] **The Louder Budget** — target: "why isn't my marketing working". Spending more to
+- [x] **The Louder Budget** — *drafted 2026-08-22 (Reads Queue draft, awaiting review)*. Target: "why isn't my marketing working". Spending more to
       amplify a message nobody understood at normal volume.
 - [ ] **The Positioning Muddle** — target: "positioning vs branding vs marketing". Where
       narrative sits and why the other two depend on it.
