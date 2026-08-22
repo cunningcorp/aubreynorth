@@ -47,18 +47,30 @@ Pack shape (the panel reads/writes this):
 {
   "status": "none | generating | generated | posted",   // overall
   "generated_at": "<timestamptz>",
-  "x_article":    { "title": "", "body_markdown": "", "state": "generated|copied|posted" },
-  "x_post":       { "text": "", "state": "..." },        // feed hook; first ~280 chars = the hook
-  "li_newsletter":{ "title": "", "body_markdown": "", "state": "..." },
-  "li_post":      { "text": "", "first_comment": "", "state": "..." },  // link lives in first_comment
-  "micro_posts":  [ { "text": "", "platforms": ["x","linkedin"], "offset_days": 2, "state": "..." } ]
+
+  // Long-form (the piece itself) — title and body are separate copyable fields
+  "x_article":   { "title": "", "body_markdown": "", "state": "generated|copied|posted" },
+  "li_longform": { "title": "", "body_markdown": "", "state": "..." },  // Article now; Newsletter issue once eligible
+
+  // Promotional posts (the feed post shared alongside each long-form)
+  "x_post":      { "text": "", "hashtags": "", "state": "..." },        // first ~280 chars = the hook
+  "li_post":     { "text": "", "first_comment": "", "hashtags": "", "state": "..." },  // link in first_comment
+
+  // Follow-ups
+  "micro_posts": [ { "text": "", "hashtags": "", "platforms": ["x","linkedin"], "offset_days": 2, "state": "..." } ]
 }
 ```
 
 Notes:
+- **Every atomic field is separately copyable** — title, body, text, first_comment, hashtags —
+  each with its own Copy button. The goal is zero reformatting between the panel and the
+  platform composer: title into the title field, body into the body, hashtags as one line.
+- **Hashtags are always their own field / their own line**, never baked into the post text, so
+  Demetri can paste or omit them per platform norm. X: at most `#TheRead`. LinkedIn:
+  `#TheRead #SayLessMeanMore #OneEighth`.
 - Canonical link (to `https://aubreynorth.com/reads/<slug>/`) goes **in the body** of
-  `x_article` and `li_newsletter`, and in `li_post.first_comment` — never in a feed post body.
-- `state` per channel is Demetri's manual tracker (generated → copied → posted). The panel
+  `x_article` and `li_longform`, and in `li_post.first_comment` — never in a promotional-post body.
+- `state` per asset is Demetri's manual tracker (generated → copied → posted). The panel
   never sets `posted` on its own.
 - RLS unchanged; authenticated/shared-key access only, no anon.
 
@@ -74,14 +86,17 @@ Deployed in the aubreynorth Supabase project, alongside `suggest-fixes` and `pub
 - Calls the **Anthropic API** with a system prompt built from the **shared voice config**
   (`VOICE-RULES.md` — the same one `suggest-fixes` uses; do not duplicate the rules) plus the
   **format templates** from `DISTRIBUTION-STRATEGY.md`:
-  - **x_article** — the Read as a native X Article: same argument, rich long-form, canonical
-    link in the body. Withhold nothing here; it is the full piece.
-  - **x_post** — a feed hook whose first line is the Read's Mirror line; teases, does not
-    resolve; points to the Article. No body link.
-  - **li_newsletter** — the Read as a Newsletter entry (title + body), canonical link in body.
-  - **li_post** — a feed hook (AN voice, first person "we"); `first_comment` carries the link.
-  - **micro_posts** — 4–6 pull-quotes, one idea each, resolution withheld, with suggested
-    `offset_days`.
+  - **x_article** — the Read as a native X Article (title + body): same argument, rich
+    long-form, canonical link in the body. It is the full piece.
+  - **li_longform** — the same as an Article / Newsletter entry (title + body), canonical link
+    in body. (Published as an Article now; as a Newsletter issue once the page is eligible.)
+  - **x_post** — the **promotional post** for the X Article: first line is the Read's Mirror
+    line; teases, does not resolve; points to the Article. `hashtags` line: at most `#TheRead`.
+  - **li_post** — the **promotional post** for the LinkedIn long-form (AN voice, first person
+    "we"); `first_comment` carries the link; `hashtags` line:
+    `#TheRead #SayLessMeanMore #OneEighth`.
+  - **micro_posts** — 4–6 pull-quotes, one idea each, resolution withheld, each with its own
+    `hashtags` line and a suggested `offset_days`.
 - **Returns** the pack JSON; writes it to `social` with `status='generated'`. **Posts nothing.**
 - Secret: reuse `ANTHROPIC_API_KEY` (edge-function secret only). CORS limited to
   `https://portal.cunningcorp.com`.
@@ -96,23 +111,28 @@ system; requirements, not styling.
 - **Generate.** A **Generate social** button (or auto-generate on first entry to `ready`).
   While running, show progress; on return, populate the sections. A **Regenerate** action
   re-runs the function (replaces unposted copy; warn if any section is already `posted`).
-- **Sections**, each editable with the same accept/reject suggestion affordance as the editor
-  and live validation:
-  - **X Article** — title + body (markdown / light rich). Link-in-body allowed.
-  - **X post** — single field; show a live 280-char "preview cutoff" marker so the hook fits.
-  - **LinkedIn Newsletter** — title + body. Link-in-body allowed.
-  - **LinkedIn post** — post body **and a separate first-comment field** (the link); both have
-    their own Copy button.
-  - **Micro-posts** — a list; each editable, with its `platforms` and `offset_days`
-    (display-only scheduling hint — Demetri still posts by hand).
-- **Per section:** a **Copy** button and an **Open composer** link (X Articles editor, X
-  compose, LinkedIn newsletter/article editor, LinkedIn post composer). A **state** control
+- **Sections**, grouped **Long-form → Promotional posts → Micro-posts**, each editable with
+  the same accept/reject suggestion affordance as the editor. **Every atomic field has its own
+  Copy button** — the panel is built for zero-reformat paste:
+  - **X Article** (long-form) — **Copy title** and **Copy body** as separate buttons.
+    Link-in-body allowed.
+  - **LinkedIn long-form** — **Copy title** and **Copy body**. Published as an Article now, a
+    Newsletter issue once eligible. Link-in-body allowed.
+  - **X promotional post** — **Copy post** and a separate **Copy hashtags** (its own line,
+    default `#TheRead`). A live 280-char cutoff marker shows where the hook truncates.
+  - **LinkedIn promotional post** — **Copy post**, **Copy first comment** (the link), and
+    **Copy hashtags** (`#TheRead #SayLessMeanMore #OneEighth`) — three separate buttons.
+  - **Micro-posts** — a list; each with **Copy text** and **Copy hashtags**, plus its
+    `platforms` and `offset_days` (display-only scheduling hint — Demetri still posts by hand).
+- **Per asset:** an **Open composer** link (X Articles editor, X compose, LinkedIn
+  article/newsletter editor, LinkedIn post composer) and a **state** control
   (generated → copied → posted) Demetri sets manually.
 - **Validation** (inline, shared with the editor's rules where they apply):
   - No exclamation marks, no hard-block hype words, no italics.
-  - Feed hooks (x_post, li_post) withhold the resolution; the link is not in a feed-post body.
-  - X post ≤ 25,000 chars; LinkedIn post ≤ 3,000 chars; description-style limits where used.
-  - Canonical link present in x_article, li_newsletter, and li_post.first_comment.
+  - Promotional posts (x_post, li_post) withhold the resolution; the link is not in their body.
+  - X post ≤ 25,000 chars; LinkedIn post ≤ 3,000 chars.
+  - Canonical link present in `x_article` / `li_longform` bodies and `li_post.first_comment`.
+  - Hashtags live only in the `hashtags` field, never inside post text.
 
 ---
 
@@ -141,11 +161,12 @@ multi-account support.
       non-`ready` Read.
 - [ ] Generate returns all five sections populated in-voice, written to `social` as
       `status='generated'`; nothing is posted anywhere.
-- [ ] Each section is editable, passes the shared voice validation, and has working Copy +
-      Open-composer + manual state controls; LinkedIn post exposes a separate first-comment
-      Copy.
-- [ ] Canonical link is in x_article / li_newsletter bodies and li_post.first_comment, and
-      never in a feed-post body.
+- [ ] Every atomic field has its own Copy button (title, body, post text, first comment,
+      hashtags); hashtags copy as their own line and never appear inside post text.
+- [ ] Each section is editable, passes the shared voice validation, and has working
+      Open-composer + manual state controls.
+- [ ] Canonical link is in x_article / li_longform bodies and li_post.first_comment, and
+      never in a promotional-post body.
 - [ ] `ANTHROPIC_API_KEY` stays an edge-function secret; `generate-social` CORS is limited to
       the portal origin.
 - [ ] No code path can post to X or LinkedIn.
