@@ -9,6 +9,11 @@ export default defineConfig({
   site: 'https://aubreynorth.com',
   output: 'static',
   trailingSlash: 'always',
+  // The "Type" lane was renamed to "Archetype" (label + URL). Redirect the old
+  // path so existing links/indexed URLs don't 404. Static build emits a redirect page.
+  redirects: {
+    '/reads/type/': '/reads/archetype/',
+  },
   integrations: [
     mdx(),
     sitemap({
