@@ -6,9 +6,14 @@
   _handoff/brand/copylock.json (voice.*) and the draft-a-read skill; it does
   not invent new positioning. Bump the version and note changes below.
 
-  version: 1.0
-  updated: 2026-08-21
+  version: 1.1
+  updated: 2026-08-22
   sources: _handoff/brand/copylock.json (v1.3), draft-a-read skill, clear-writing skill
+  changelog:
+    1.1 — added "name what the term hides" de-jargon rule (industry jargon +
+          opaque craft metaphors); added de-jargon to recurring edit patterns;
+          closing lane-link line is plain text, no whole-line italics.
+    1.0 — initial consolidation of copylock voice + clarity + edit patterns.
 -->
 
 # Aubrey North — voice rules
@@ -43,6 +48,15 @@ or longer-but-unmistakable, choose unmistakable.
 - Name the concrete thing. Abstract placeholders — the thing, the part, the mark,
   the distance, the point, what it is — must be replaced by, or paired with, the
   specific thing they refer to. If a reader could ask "which thing?", it isn't done.
+- Name what the term hides. If a word sounds meaningful but doesn't tell the reader
+  what to picture or do, replace it with the concrete thing it stands for. Two kinds
+  to catch: (a) industry jargon a general reader may not parse — "the ask", "the
+  close", "top of funnel"; (b) internal or craft metaphors that read as meaningful but
+  are opaque — "start folding", "let it breathe", "the strands haven't begun to fold".
+  Test: could a smart reader outside the field ask "what does that actually mean?" If
+  yes, say it plainly. E.g. "the ask" → "the moment you ask them for something"; "the
+  close is ready" → "you know how you'll finish"; "it has to start folding" → "it has
+  to start pulling together".
 - Prefer explicit over elegant. One unambiguous longer sentence beats a tighter
   one open to three readings. Never sacrifice meaning for rhythm.
 - Spell out the mechanism. If X causes Y, or something "just works", say how, plainly.
@@ -63,6 +77,10 @@ or longer-but-unmistakable, choose unmistakable.
 - Parallelism for antithesis. "present in every category, is fully real in none" →
   "present in every category, is truly present in none" — repeat the key word to
   sharpen the contrast.
+- De-jargon (name what the term hides). Replace insider terms and opaque metaphors
+  with the plain thing they mean: "the ask" → "the moment you ask for something";
+  "the close is ready" → "you know how you'll finish"; "it has to start folding" →
+  "it has to start pulling together".
 
 Net: tighten and hedge at once — measured confidence that removes anything a reader
 could trip on or over-read.
@@ -88,7 +106,9 @@ satisfy them; publish is blocked until they do.
 sentences). Answer the searcher's question within the first ~150 words. Close by
 landing the one idea, at most one echo of an AN line. Include at least one internal
 link to a related Read and one to the lane page. The business-turn section is headed
-"The business edit".
+"The business edit". The closing lane-link line (e.g. "More on how stories hold an
+audience in the Screen lane.") is **plain text — not italicised, not wrapped in
+asterisks**. Avoid a whole line set in italics anywhere in a Read.
 
 ## Approved coinages (from copylock aubreyNorthLexicon — use only these public terms)
 
